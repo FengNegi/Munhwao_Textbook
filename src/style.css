@@ -1,0 +1,178 @@
+/* ---------------------------------------------------------------------------
+   Styling for 문화어 교재.  The starting point is what the Google Docs export
+   produced (Arial 11pt, 1.15 line height, an A4-ish sheet with 72pt margins,
+   1pt black table borders); everything here is meant to be edited freely.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* page geometry — matches the Google Docs export exactly */
+  --doc-width: 451.4pt;      /* text column */
+  --doc-margin: 72pt;        /* page margin */
+  --body-size: 11pt;
+  --line-height: 1.15;
+  --paragraph-gap: 1.15em;   /* the empty paragraphs Google Docs used as gaps */
+
+  /* how underlines sit relative to the text.  `under` keeps the line clear of
+     the descenders of Hangul/kana; `auto` is the browser default. */
+  --underline-position: under;
+
+  --ink: #000000;
+  --blue: #0000ff;
+  --purple: #9900ff;
+  --gray: #666666;
+  --link: #1155cc;
+  --rule: #000000;           /* table / note-box borders */
+  --blocked: #999999;        /* greyed-out table cells */
+  --canvas: #f3f3f3;         /* area around the sheet */
+  --sheet: #ffffff;
+
+  --sans: Arial, Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Apple SD Gothic Neo", "Noto Sans JP", "Noto Sans KR", "Yu Gothic",
+    Meiryo, "Malgun Gothic", sans-serif;
+}
+
+html {
+  background: var(--canvas);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--body-size);
+  line-height: var(--line-height);
+}
+
+.doc-content {
+  max-width: var(--doc-width);
+  margin: 24px auto;
+  padding: var(--doc-margin);
+  background: var(--sheet);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 780px) {
+  .doc-content {
+    margin: 0;
+    padding: 24px 18px;
+  }
+}
+
+/* --- blocks -------------------------------------------------------------- */
+
+p {
+  margin: 0 0 var(--paragraph-gap);
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;          /* Google Docs headings are not bold here */
+  line-height: var(--line-height);
+}
+
+h1 {
+  font-size: 26pt;
+  margin: 0 0 3pt;
+}
+
+h2 {
+  font-size: 16pt;
+  margin: 18pt 0 6pt;
+}
+
+h3 {
+  font-size: 14pt;
+  margin: 16pt 0 4pt;
+}
+
+ol,
+ul {
+  margin: 0 0 var(--paragraph-gap);
+  padding-left: 36pt;
+}
+
+li > p {
+  margin-bottom: var(--paragraph-gap);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--link);
+}
+
+/* --- inline -------------------------------------------------------------- */
+
+u,
+.underline {
+  text-decoration: underline;
+  text-underline-position: var(--underline-position);
+  text-decoration-skip-ink: none;
+}
+
+sup {
+  font-size: 0.7em;
+  vertical-align: super;
+}
+
+.blue   { color: var(--blue); }
+.purple { color: var(--purple); }
+.gray   { color: var(--gray); }
+
+/* --- tables -------------------------------------------------------------- */
+
+table.grid {
+  border-collapse: collapse;
+  margin: 0 0 var(--paragraph-gap);
+}
+
+table.grid td,
+table.grid th {
+  border: 1pt solid var(--rule);
+  padding: 5pt;
+  vertical-align: top;
+}
+
+table.grid .blocked {
+  background: var(--blocked);
+}
+
+table.grid.w-sm td { width: 75.2pt; }
+table.grid.w-md td { width: 112.9pt; }
+table.grid.w-lg td { width: 225.7pt; }
+table.grid.indent  { margin-left: 36pt; }
+
+/* --- note boxes ---------------------------------------------------------- */
+/* Single-cell tables in the original document: 補足 / 経緯 / 実例 sidebars.
+   Labelled ones became <details> so they can be folded away; add `open` in
+   index.md to have one expanded by default. */
+
+.note {
+  border: 1pt solid var(--rule);
+  padding: 5pt;
+  margin: 0 0 var(--paragraph-gap);
+}
+
+.note > :last-child {
+  margin-bottom: 0;
+}
+
+details.note > summary {
+  cursor: pointer;
+  list-style-position: outside;
+}
+
+.note.purple,
+.note.blue,
+.note.gray {
+  /* the whole box is one colour in the source document */
+  color: inherit;
+}
+
+.note.purple  { color: var(--purple); }
+.note.blue    { color: var(--blue); }
+.note.gray    { color: var(--gray); }
