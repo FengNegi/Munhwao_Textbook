@@ -164,7 +164,7 @@ const CLOSE_FENCE = /^:>:[ \t]*$/;
 function preprocess(body) {
   const chars = { body: new Set(ALWAYS), sample: new Set(ALWAYS) };
   let depth = 0;
-  const out = body.split("\n").map((line) => {
+  const out = body.split(/\r?\n/).map((line) => {
     const open = OPEN_FENCE.exec(line);
     if (open) {
       depth += 1;
