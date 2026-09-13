@@ -18,7 +18,6 @@
 
   --ink: #000000;
   --blue: #0000ff;
-  --purple: #9900ff;
   --gray: #666666;
   --link: #1155cc;
   --rule: #000000;           /* table / note-box borders */
@@ -140,7 +139,6 @@ sup {
 }
 
 .blue   { color: var(--blue); }
-.purple { color: var(--purple); }
 .gray   { color: var(--gray); }
 
 /* --- tables -------------------------------------------------------------- */
@@ -186,13 +184,11 @@ details.note > summary {
   list-style-position: outside;
 }
 
-.note.purple,
 .note.blue,
 .note.gray {
   /* the whole box is one colour in the source document */
   color: inherit;
 }
 
-.note.purple  { color: var(--purple); }
 .note.blue    { color: var(--blue); }
 .note.gray    { color: var(--gray); }

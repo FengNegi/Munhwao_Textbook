@@ -51,7 +51,7 @@ npm run start   # http://localhost:3631/ で閲覧
   開いた状態にしたければ `<details class="note" open>` とします。
   折りたたまずに囲みたいときは `<div class="note"> … </div>`。
   どちらも中身は空行で挟めば Markdown として書けます。
-- 文字色は `<span class="blue">`, `<span class="purple">`, `<span class="gray">`。囲み全体が一色なら `<div class="note purple">` のようにまとめられます。
+- 文字色は `<span class="blue">`, `<span class="gray">`。
 - 下線は `<u>`。下線の位置は `src/style.css` の `--underline-position`（既定は `under`）で一括調整できます。
 - 例文は `:<: s` と `:>:` で囲みます。`<div class="sample">` になり、Source Han Serif＋청봉が当たります。
   一般に `:<: なまえ` … `:>:` は `<div class="なまえ">` になります（`s` だけは `sample` に読み替え）。
