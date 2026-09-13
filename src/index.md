@@ -7,8 +7,43 @@ lang: ja
 
 ![](images/image2.png)
 
-文字
+## 文字
+### 分類
+* 平音(=阻害音)
+* 激音(=有気音)
+* 濃音(=fortis)
+<table border="1" cellspacing="0" cellpadding="3" bordercolordark="white" bordercolorlight="black">
+  <tbody><tr><td colspan="2"><span class="honbun">&nbsp;</span></td><th><span class="honbun">両唇音</span></th><th><span class="honbun">歯茎音</span></th>
+      <th><span class="honbun">歯茎摩擦音</span></th><th><span class="honbun">硬口蓋破擦音</span></th>
+      <th><span class="honbun">軟口蓋音</span></th><th><span class="honbun">喉頭音</span></th></tr>
+  <tr><th rowspan="3"><span class="honbun">口音</span></th><th><span class="honbun">平音</span></th>
+      <td align="center"><span class="honbun">ㅂ</span></td><td align="center"><span class="honbun">ㄷ</span></td>
+      <td align="center"><span class="honbun">ㅅ</span></td><td align="center"><span class="honbun">ㅈ</span></td>
+      <td align="center"><span class="honbun">ㄱ</span></td><td align="center"><span class="honbun">&nbsp;</span></td></tr>
+  <tr><th><span class="honbun">激音</span></th>
+      <td align="center"><span class="honbun">ㅍ</span></td><td align="center"><span class="honbun">ㅌ</span></td>
+      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">ㅊ</span></td>
+      <td align="center"><span class="honbun">ㅋ</span></td><td align="center"><span class="honbun">ㅎ</span></td></tr>
+  <tr><th><span class="honbun">濃音</span></th>
+      <td align="center"><span class="honbun">ㅃ</span></td><td align="center"><span class="honbun">ㄸ</span></td>
+      <td align="center"><span class="honbun">ㅆ</span></td><td align="center"><span class="honbun">ㅉ</span></td>
+      <td align="center"><span class="honbun">ㄲ</span></td><td align="center"><span class="honbun">&nbsp;</span></td></tr>
+  <tr><th colspan="2"><span class="honbun">鼻音</span></th>
+      <td align="center"><span class="honbun">ㅁ</span></td><td align="center"><span class="honbun">ㄴ</span></td>
+      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">&nbsp;</span></td>
+      <td align="center"><span class="honbun">ㅇ</span></td><td align="center"><span class="honbun">&nbsp;</span></td></tr>
+  <tr><th colspan="2"><span class="honbun">流音</span></th>
+      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">ㄹ</span></td>
+      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">&nbsp;</span></td>
+      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">&nbsp;</span></td></tr>
+</tbody></table>
+鼻音等も平音に分類する流派もありますが、説明において特に有意義とは思えないので採用しません。
+<details class="note">
+<summary>補足</summary>
 
+TODO: 北朝鮮における分類
+
+</details>
 文字順は韓国と異なります
 ㄱㄴㄷㄹㅁㅂㅅㅇㅈ ㅊㅋㅌㅍㅎ ㄲㄸㅃㅆㅉ
 ㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣㅐㅒㅔㅖㅚㅟㅢㅘㅝㅙㅞ
@@ -333,7 +368,20 @@ lang: ja
 ![](images/image3.png)
 
 </details>
+<details class="note">
+<summary>補足</summary>
+《文化語発音法》で
 
+> 単語や単語結合で間の音が平音の前に挟まって出る場合、その平音を濃音で発音する。
+(第16項)
+
+> 固有語で作られている一部合成語や単語結合で間の音が挟まって出る場合は形態部に《ㄷ》を挟んで発音する。
+(第27項)
+
+としており、一般的には｢《ㄷ》が挟まったことによる濃音化｣と見るべきだ。しかし、第16項の例で강가[강까]と表記されているのに対し、第27項では강가[강ㄷ가→강까]と表記されているところを見るに、南における間の音の発音規定(『標準発音法』第30項)と同様、間の音を[ㄷ]で発音することはあくまでも許容発音に過ぎないと見ても良いかもしれない。
+この論理だと、｢(少なくとも歴史的過程を全く考慮に入れなければ)わざわざㅅパッチムで書く必要性があまりない｣と取ることもでき、北は｢じゃあ別に記号化してもいいじゃんね？｣ということで《間の標》の導入へと舵を切ったのではなかろうか？とねぎは推測している。
+
+</details>
 この教材における用法
 
 合成語またはこれに準じうる単語の間で、1番目の語根の音節末が母音や[ㄴ, ㄹ, ㅁ, ㅇ]であるとき、《間の音》を生じるものはその中間に《間の標》(’)を置きます。
