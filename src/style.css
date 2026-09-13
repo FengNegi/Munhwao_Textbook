@@ -105,6 +105,11 @@ a {
   color: var(--link);
 }
 
+.page-nav {
+  margin: 0 0 var(--paragraph-gap);
+  text-align: right;
+}
+
 /* --- inline -------------------------------------------------------------- */
 
 u,

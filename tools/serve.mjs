@@ -4,11 +4,11 @@
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
-import { build, DIST, ROOT, SRC } from "./build.mjs";
+import { build, DIST, ROOT, SRC, pages } from "./build.mjs";
 
 const PORT = Number(process.env.PORT) || 3631;
 const watched = () => [
-  path.join(SRC, "index.md"),
+  ...pages().map((f) => path.join(SRC, f)),
   path.join(SRC, "style.css"),
   ...fs.readdirSync(path.join(SRC, "images")).map((f) => path.join(SRC, "images", f)),
 ];

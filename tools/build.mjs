@@ -1,5 +1,6 @@
-// Renders src/index.md into dist/index.html and copies the assets next to it.
-// Run directly (`npm run build`) or import renderPage() from the dev server.
+// Renders every src/*.md page into dist/<name>.html and copies the assets
+// next to them.  Run directly (`npm run build`) or import build() from the
+// dev server.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -28,8 +29,10 @@ function frontMatter(text) {
 const escapeHtml = (s) =>
   s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-export function renderPage() {
-  const { meta, body } = frontMatter(fs.readFileSync(path.join(SRC, "index.md"), "utf8"));
+export const pages = () => fs.readdirSync(SRC).filter((f) => f.endsWith(".md"));
+
+export function renderPage(name) {
+  const { meta, body } = frontMatter(fs.readFileSync(path.join(SRC, name), "utf8"));
   const title = meta.title || "문화어를 배우자";
   return `<!doctype html>
 <html lang="${meta.lang || "ja"}">
@@ -55,11 +58,15 @@ function copyAssets() {
 
 export function build() {
   fs.mkdirSync(DIST, { recursive: true });
-  fs.writeFileSync(path.join(DIST, "index.html"), renderPage());
+  const written = pages().map((name) => {
+    const out = path.join(DIST, name.replace(/\.md$/, ".html"));
+    fs.writeFileSync(out, renderPage(name));
+    return out;
+  });
   copyAssets();
-  return path.join(DIST, "index.html");
+  return written;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  console.log(`built ${path.relative(ROOT, build())}`);
+  for (const out of build()) console.log(`built ${path.relative(ROOT, out)}`);
 }

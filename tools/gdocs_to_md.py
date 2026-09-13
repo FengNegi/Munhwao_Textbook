@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Convert the Google Docs HTML export in google_docs/ into src/index.md.
+"""Convert the Google Docs HTML export in google_docs/ into the src/*.md pages.
+
+The document's two Google Docs tabs become two pages: タブ1 -> src/index.md
+(the main material) and タブ2 -> src/to.md (the supplement on 토).
 
 One-off migration helper, kept in the repo so the conversion can be re-run if
 the document is exported from Google Docs again. It is NOT part of the build:
-src/index.md is the source of truth once generated.
+the files in src/ are the source of truth once generated.
 
 Google Docs class -> meaning (from the export's <style>):
   c12 bold / c6 bold+underline / c4 underline+gray / c25 underline+blue
@@ -18,11 +21,28 @@ from urllib.parse import parse_qs, urlparse
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "google_docs" / "index.html"
-OUT = ROOT / "src" / "index.md"
+OUT_DIR = ROOT / "src"
+
+# One entry per Google Docs tab, in document order.
+PAGES = [
+    {
+        "file": "index.md",
+        "title": "문화어를 배우자",
+        "heading": None,  # the banner image at the top of the tab is the title
+        "nav": '<nav class="page-nav"><a href="to.html">'
+               '補足教材：토について →</a></nav>',
+    },
+    {
+        "file": "to.md",
+        "title": "토 | 문화어를 배우자",
+        "heading": "# 토",
+        "nav": '<nav class="page-nav"><a href="index.html">'
+               '← 本編にもどる</a></nav>',
+    },
+]
 
 VOID = {"img", "br", "hr", "meta", "link", "input"}
 BLOCK_TAGS = {"p", "h1", "h2", "h3", "h4", "table", "ol", "ul"}
-FRONT_MATTER = "---\ntitle: 문화어를 배우자\nlang: ja\n---\n\n"
 
 NOTE_LABEL = re.compile(
     r'^(?P<open><span class="[a-z]+">)?(?P<label>補足|経緯|実例)[:：][ \t]*'
@@ -111,7 +131,7 @@ def styled(node, md):
     if not body.strip():
         return body
     if "c12" in c or "c6" in c:
-        body = f"**{body}**" if md else f"<strong>{body}</strong>"
+        body = f"<b>{body}</b>"
     if c & {"c6", "c4", "c25"}:
         body = f"<u>{body}</u>"
     color = ("blue" if c & {"c19", "c25"} else
@@ -272,11 +292,7 @@ def blocks_to_md(nodes):
                 out.append(f"{marker}{body}")
         else:  # paragraph
             text = para_text(node)
-            if "title" in cls:
-                flush()
-                out.append(f"# {text}")
-                counter[0] = 0
-            elif not text.strip():
+            if not text.strip():
                 flush()
             elif "c11" in cls and counter[0] and in_list():
                 # continuation of the preceding list item (Docs indents these
@@ -309,12 +325,31 @@ def main():
         return None
 
     body = find(builder.root, "body")
-    md = blocks_to_md(body.kids)
-    md = FRONT_MATTER + re.sub(r"\n{3,}", "\n\n", md).strip() + "\n"
-    md = "\n".join(line.rstrip() for line in md.split("\n"))
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(md, encoding="utf-8")
-    print(f"wrote {OUT} ({len(md)} chars)", file=sys.stderr)
+
+    # each Google Docs tab starts with a Title paragraph
+    chunks, current = [], []
+    for node in body.kids:
+        if node.tag == "p" and "title" in node.cls():
+            if current:
+                chunks.append(current)
+            current = []
+        else:
+            current.append(node)
+    chunks.append(current)
+    if len(chunks) != len(PAGES):
+        sys.exit(f"expected {len(PAGES)} tabs in the export, found {len(chunks)}")
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    for page, nodes in zip(PAGES, chunks):
+        parts = [f"---\ntitle: {page['title']}\nlang: ja\n---", page["nav"]]
+        if page["heading"]:
+            parts.append(page["heading"])
+        parts.append(blocks_to_md(nodes))
+        text = re.sub(r"\n{3,}", "\n\n", "\n\n".join(parts)).strip() + "\n"
+        text = "\n".join(line.rstrip() for line in text.split("\n"))
+        out = OUT_DIR / page["file"]
+        out.write_text(text, encoding="utf-8")
+        print(f"wrote {out} ({len(text)} chars)", file=sys.stderr)
 
 
 if __name__ == "__main__":
