@@ -13,6 +13,9 @@ npm run start   # http://localhost:3631/ で閲覧
 `src/*.md` や `src/style.css` を保存するとブラウザが自動でリロードします。
 配信せずに HTML を書き出すだけなら `npm run build`。
 
+公開版: https://fengnegi.github.io/Munhwao_Textbook/
+`main` に push すると GitHub Actions (`.github/workflows/deploy.yml`) がビルドして GitHub Pages に配信します。
+
 ## 構成
 
 | パス | 内容 |
@@ -22,6 +25,7 @@ npm run start   # http://localhost:3631/ で閲覧
 | `src/style.css` | 見た目。自由に編集してよい（初期状態は Google ドキュメントの書き出しに合わせてある） |
 | `src/images/` | 画像 |
 | `dist/` | 生成物（git 管理外） |
+| `.github/workflows/deploy.yml` | GitHub Pages への自動デプロイ |
 
 ## 原稿の書き方
 
