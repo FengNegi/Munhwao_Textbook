@@ -153,44 +153,87 @@ async function buildFonts(chars) {
 
 // ---------------------------------------------------------------- markdown
 
-// `:<: name` … `:>:` fences a region off as <div class="…">.  The textbook
-// uses `:<: s` around sample sentences, which get the serif/CheongPong faces.
-const BLOCK_ALIASES = { s: "sample" };
-const OPEN_FENCE = /^:<:[ \t]+([A-Za-z][\w-]*)[ \t]*$/;
+// A region opens with `:<: kind [題名]` and closes with `:>:`, so the pages
+// need no closing tag of their own.  `open` may use the rest of the opening
+// line; `close` is pushed on a stack and emitted by the matching `:>:`, which
+// is what makes the regions nest.  `scope: "sample"` also switches the fonts.
+const BLOCKS = {
+  // 例文: serif + CheongPong
+  s: { open: () => '<div class="sample">', close: "</div>", scope: "sample" },
+  // 囲み（見出しなし）
+  box: { open: () => '<div class="note">', close: "</div>" },
+  // 折りたたみの補足欄。b-open is the same box, open on arrival.
+  b: {
+    open: (title) => `<details class="note"><summary>${title}</summary>`,
+    close: "</details>",
+    title: true,
+  },
+  "b-open": {
+    open: (title) => `<details class="note" open><summary>${title}</summary>`,
+    close: "</details>",
+    title: true,
+  },
+};
+
+const OPEN_FENCE = /^:<:[ \t]+([A-Za-z][\w-]*)[ \t]*(.*?)[ \t]*$/;
 const CLOSE_FENCE = /^:>:[ \t]*$/;
 
-// Turns the fences into <div>s and, along the way, records which characters
+// Turns the fences into HTML and, along the way, records which characters
 // appear inside a sample region and which appear in the bulk text.
-function preprocess(body) {
+function preprocess(body, page, offset = 0) {
   const chars = { body: new Set(ALWAYS), sample: new Set(ALWAYS) };
-  let depth = 0;
-  const out = body.split(/\r?\n/).map((line) => {
-    const open = OPEN_FENCE.exec(line);
-    if (open) {
-      depth += 1;
-      const name = BLOCK_ALIASES[open[1]] || open[1];
-      return `<div class="${name}">`;
+  const stack = [];
+  const scope = () => (stack.length ? stack[stack.length - 1].scope : "body");
+  const note = (text) => {
+    for (const c of text) chars[scope()].add(c);
+  };
+
+  const out = body.split(/\r?\n/).map((line, i) => {
+    const where = `${page}:${i + 1 + offset}`;
+    const opening = OPEN_FENCE.exec(line);
+    if (opening) {
+      const [, kind, title] = opening;
+      const block = BLOCKS[kind];
+      if (!block) {
+        throw new Error(
+          `${where}: 知らない囲み \`:<: ${kind}\` です（使えるのは ${Object.keys(BLOCKS)
+            .map((k) => `\`${k}\``)
+            .join(", ")}）`,
+        );
+      }
+      if (block.title && !title) {
+        throw new Error(`${where}: \`:<: ${kind}\` には見出しが要ります（例: \`:<: ${kind} 補足\`）`);
+      }
+      note(title);
+      stack.push({ close: block.close, scope: block.scope || scope() });
+      return block.open(title);
     }
-    if (CLOSE_FENCE.test(line) && depth > 0) {
-      depth -= 1;
-      return "</div>";
+    if (CLOSE_FENCE.test(line)) {
+      const frame = stack.pop();
+      if (!frame) throw new Error(`${where}: 対応する \`:<:\` のない \`:>:\` です`);
+      return frame.close;
     }
-    for (const c of line) chars[depth > 0 ? "sample" : "body"].add(c);
+    note(line);
     return line;
   });
-  if (depth !== 0) throw new Error("unbalanced :<: / :>: fence");
+
+  if (stack.length) {
+    throw new Error(`${page}: 閉じられていない \`:<:\` が ${stack.length} 個あります`);
+  }
   return { markdown: out.join("\n"), chars };
 }
 
 function frontMatter(text) {
   const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(text);
-  if (!match) return { meta: {}, body: text };
+  if (!match) return { meta: {}, body: text, offset: 0 };
   const meta = {};
   for (const line of match[1].split(/\r?\n/)) {
     const kv = /^([A-Za-z_-]+):\s*(.*)$/.exec(line.trim());
     if (kv) meta[kv[1]] = kv[2];
   }
-  return { meta, body: text.slice(match[0].length) };
+  // so that fence errors can be reported with the line number in the file
+  const offset = (match[0].match(/\n/g) || []).length;
+  return { meta, body: text.slice(match[0].length), offset };
 }
 
 const escapeHtml = (s) =>
@@ -199,8 +242,8 @@ const escapeHtml = (s) =>
 export const pages = () => fs.readdirSync(SRC).filter((f) => f.endsWith(".md"));
 
 export function renderPage(name) {
-  const { meta, body } = frontMatter(fs.readFileSync(path.join(SRC, name), "utf8"));
-  const { markdown, chars } = preprocess(body);
+  const { meta, body, offset } = frontMatter(fs.readFileSync(path.join(SRC, name), "utf8"));
+  const { markdown, chars } = preprocess(body, name, offset);
   const title = meta.title || "문화어를 배우자";
   const html = `<!doctype html>
 <html lang="${meta.lang || "ja"}">

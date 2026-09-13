@@ -47,12 +47,18 @@ npm run start   # http://localhost:3631/ で閲覧
 - ページを増やすときは `src/` に `.md` を足すだけです（`src/foo.md` → `dist/foo.html`）。先頭の `---` … `---` に `title:` を書きます。ページ間のリンクは `<nav class="page-nav">` で。
 - 太字は必ず `<b>…</b>` を使います（`**…**` は使いません）。
 - 段落内の改行はそのまま `<br>` になります（Google ドキュメントの Shift+Enter と同じ感覚）。空行が段落の区切りです。
-- 生 HTML が使えます。`<details class="note"><summary>補足</summary> … </details>` が折りたたみの補足欄です。
-  開いた状態にしたければ `<details class="note" open>` とします。
-  折りたたまずに囲みたいときは `<div class="note"> … </div>`。
-  どちらも中身は空行で挟めば Markdown として書けます。
+- 囲みは `:<: なまえ` で開いて `:>:` で閉じます。HTML タグは書かなくて構いません。
+
+  | 書き方 | でき上がり |
+  | --- | --- |
+  | `:<: b 補足` … `:>:` | 折りたたみの補足欄（見出しは `b` の後ろに書いたもの） |
+  | `:<: b-open 補足` … `:>:` | 同じものが最初から開いた状態 |
+  | `:<: box` … `:>:` | 見出しなしの囲み（折りたたまない） |
+  | `:<: s` … `:>:` | 例文（Source Han Serif＋청봉） |
+
+  中身は空行で挟んでおけば普通に Markdown として書けます。入れ子にもできます。
+  閉じ忘れ・知らない名前・見出しの書き忘れは、ビルドのときに行番号つきで教えてくれます。
+  囲みの種類を増やすには `tools/build.mjs` の `BLOCKS` に足してください。
 - 文字色は `<span class="blue">`, `<span class="gray">`。
 - 下線は `<u>`。下線の位置は `src/style.css` の `--underline-position`（既定は `under`）で一括調整できます。
-- 例文は `:<: s` と `:>:` で囲みます。`<div class="sample">` になり、Source Han Serif＋청봉が当たります。
-  一般に `:<: なまえ` … `:>:` は `<div class="なまえ">` になります（`s` だけは `sample` に読み替え）。
 - 表は `<table class="grid">`。列幅は `w-sm` / `w-md` / `w-lg`、左に寄せるなら `indent`、灰色のセルは `<td class="blocked">`。
