@@ -26,9 +26,18 @@
   --canvas: #f3f3f3;         /* area around the sheet */
   --sheet: #ffffff;
 
-  --sans: Arial, Helvetica, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
-    "Apple SD Gothic Neo", "Noto Sans JP", "Noto Sans KR", "Yu Gothic",
-    Meiryo, "Malgun Gothic", sans-serif;
+  /* Bulk text: Korean in CheonRiMa, Japanese (and everything else) in Source
+     Han Sans.  The Korean face is restricted to the Hangul range in
+     dist/fonts.css, so non-Hangul characters fall through to the next family.
+     Both are subset at build time from font/ by tools/build.mjs. */
+  --sans: "TextbookKo", "TextbookJa", Arial, Helvetica, "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Apple SD Gothic Neo", "Noto Sans JP",
+    "Noto Sans KR", "Yu Gothic", Meiryo, "Malgun Gothic", sans-serif;
+
+  /* Sample sentences (`:<: s` … `:>:`): Korean in CheongPong, Japanese in
+     Source Han Serif. */
+  --serif: "SampleKo", "SampleJa", "Hiragino Mincho ProN", "Yu Mincho",
+    "Noto Serif JP", "Noto Serif KR", serif;
 }
 
 html {
@@ -103,6 +112,12 @@ img {
 
 a {
   color: var(--link);
+}
+
+/* --- sample sentences ---------------------------------------------------- */
+
+.sample {
+  font-family: var(--serif);
 }
 
 .page-nav {

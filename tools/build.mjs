@@ -1,19 +1,186 @@
-// Renders every src/*.md page into dist/<name>.html and copies the assets
+// Renders every src/*.md page into dist/<name>.html, subsets the fonts in
+// font/ down to the characters the pages actually use, and copies the assets
 // next to them.  Run directly (`npm run build`) or import build() from the
 // dev server.
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import MarkdownIt from "markdown-it";
+import subsetFont from "subset-font";
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const SRC = path.join(ROOT, "src");
 export const DIST = path.join(ROOT, "dist");
+const FONT_SRC = path.join(ROOT, "font");
+const FONT_CACHE = path.join(ROOT, ".cache", "fonts");
 
 // html: true  -> <details>/<summary> and the tables in index.md pass through
 // breaks: true -> a newline is a <br>, matching how the Google Docs source
 //                 used soft line breaks inside a paragraph
 const md = new MarkdownIt({ html: true, breaks: true, linkify: false });
+
+// ---------------------------------------------------------------- fonts
+
+// Hangul syllables, both jamo blocks and the compatibility jamo (ㄱ, ㅏ …)
+// that the text uses constantly.  Anything outside this range falls through
+// to the Japanese face in the family stack.
+const HANGUL_RANGE = "U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7FF";
+const HANGUL_RE = /[ᄀ-ᇿ㄰-㆏ꥠ-꥿가-퟿]/;
+
+// Always keep these, whatever the pages happen to contain today.
+const ALWAYS =
+  " !\"#$%&'()*+,-./0123456789:;<=>?@[]^_`{|}~" +
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" +
+  "→←…—–「」『』《》｢｣、。，．・：；？！％＋－（）［］【】〜※°ə";
+
+// scope "body"   -> the bulk text          scope "sample" -> :<: s … :>: regions
+// script "ja"    -> everything but Hangul  script "ko"    -> Hangul only
+const FONTS = [
+  {
+    family: "TextbookJa",
+    weight: 400,
+    file: "SourceHanSansJP-Normal.otf",
+    name: "source-han-sans-jp",
+    scope: "body",
+    script: "ja",
+  },
+  {
+    family: "TextbookKo",
+    weight: 400,
+    file: "KP-CheonRiMa-KCC.ttf",
+    name: "kp-cheonrima",
+    scope: "body",
+    script: "ko",
+    unicodeRange: HANGUL_RANGE,
+  },
+  {
+    family: "SampleJa",
+    weight: 400,
+    file: "SourceHanSerifJP-Regular.otf",
+    name: "source-han-serif-jp",
+    scope: "sample",
+    script: "ja",
+  },
+  {
+    family: "SampleJa",
+    weight: 700,
+    file: "SourceHanSerifJP-Bold.otf",
+    name: "source-han-serif-jp-bold",
+    scope: "sample",
+    script: "ja",
+  },
+  // CheongPong only ships a Bold cut; declaring it for both weights keeps the
+  // browser from synthesising a second, heavier one for <b>.
+  {
+    family: "SampleKo",
+    weight: 400,
+    file: "KCC-KP-CheongPong-Bold-KP-2011KPS.ttf",
+    name: "kp-cheongpong-bold",
+    scope: "sample",
+    script: "ko",
+    unicodeRange: HANGUL_RANGE,
+  },
+  {
+    family: "SampleKo",
+    weight: 700,
+    file: "KCC-KP-CheongPong-Bold-KP-2011KPS.ttf",
+    name: "kp-cheongpong-bold",
+    scope: "sample",
+    script: "ko",
+    unicodeRange: HANGUL_RANGE,
+  },
+];
+
+const charsFor = (font, chars) =>
+  [...chars[font.scope]]
+    .filter((c) => (font.script === "ko" ? HANGUL_RE.test(c) : !HANGUL_RE.test(c)))
+    .sort()
+    .join("");
+
+// Subsetting a CJK font takes a second or two, so keep the results in
+// .cache/fonts/ keyed by the source file and the exact character set.
+async function subsetToCache(font, text) {
+  const source = path.join(FONT_SRC, font.file);
+  const stat = fs.statSync(source);
+  const key = crypto
+    .createHash("sha256")
+    .update(`${font.file}:${stat.size}:${stat.mtimeMs}:${text}`)
+    .digest("hex")
+    .slice(0, 8);
+  const cached = path.join(FONT_CACHE, `${font.name}.${key}.woff2`);
+  if (!fs.existsSync(cached)) {
+    fs.mkdirSync(FONT_CACHE, { recursive: true });
+    const woff2 = await subsetFont(fs.readFileSync(source), text, { targetFormat: "woff2" });
+    fs.writeFileSync(cached, woff2);
+  }
+  return { cached, file: `${font.name}.${key}.woff2` };
+}
+
+// Writes dist/fonts/*.woff2 and returns the generated @font-face stylesheet.
+async function buildFonts(chars) {
+  const outDir = path.join(DIST, "fonts");
+  fs.rmSync(outDir, { recursive: true, force: true });
+  fs.mkdirSync(outDir, { recursive: true });
+
+  const rules = [];
+  const done = new Map(); // one download per physical font file
+  for (const font of FONTS) {
+    const text = charsFor(font, chars);
+    if (!done.has(font.name)) {
+      const { cached, file } = await subsetToCache(font, text);
+      fs.copyFileSync(cached, path.join(outDir, file));
+      done.set(font.name, file);
+    }
+    rules.push(
+      [
+        "@font-face {",
+        `  font-family: "${font.family}";`,
+        `  src: url("fonts/${done.get(font.name)}") format("woff2");`,
+        `  font-weight: ${font.weight};`,
+        "  font-style: normal;",
+        "  font-display: swap;",
+        ...(font.unicodeRange ? [`  unicode-range: ${font.unicodeRange};`] : []),
+        "}",
+      ].join("\n"),
+    );
+  }
+  return `/* Generated by tools/build.mjs — do not edit; run \`npm run build\`.
+   Sources live in font/, subset to the characters used by src/*.md. */\n\n${rules.join(
+    "\n\n",
+  )}\n`;
+}
+
+// ---------------------------------------------------------------- markdown
+
+// `:<: name` … `:>:` fences a region off as <div class="…">.  The textbook
+// uses `:<: s` around sample sentences, which get the serif/CheongPong faces.
+const BLOCK_ALIASES = { s: "sample" };
+const OPEN_FENCE = /^:<:[ \t]+([A-Za-z][\w-]*)[ \t]*$/;
+const CLOSE_FENCE = /^:>:[ \t]*$/;
+
+// Turns the fences into <div>s and, along the way, records which characters
+// appear inside a sample region and which appear in the bulk text.
+function preprocess(body) {
+  const chars = { body: new Set(ALWAYS), sample: new Set(ALWAYS) };
+  let depth = 0;
+  const out = body.split("\n").map((line) => {
+    const open = OPEN_FENCE.exec(line);
+    if (open) {
+      depth += 1;
+      const name = BLOCK_ALIASES[open[1]] || open[1];
+      return `<div class="${name}">`;
+    }
+    if (CLOSE_FENCE.test(line) && depth > 0) {
+      depth -= 1;
+      return "</div>";
+    }
+    for (const c of line) chars[depth > 0 ? "sample" : "body"].add(c);
+    return line;
+  });
+  if (depth !== 0) throw new Error("unbalanced :<: / :>: fence");
+  return { markdown: out.join("\n"), chars };
+}
 
 function frontMatter(text) {
   const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(text);
@@ -33,21 +200,24 @@ export const pages = () => fs.readdirSync(SRC).filter((f) => f.endsWith(".md"));
 
 export function renderPage(name) {
   const { meta, body } = frontMatter(fs.readFileSync(path.join(SRC, name), "utf8"));
+  const { markdown, chars } = preprocess(body);
   const title = meta.title || "문화어를 배우자";
-  return `<!doctype html>
+  const html = `<!doctype html>
 <html lang="${meta.lang || "ja"}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
+<link rel="stylesheet" href="fonts.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="doc-content">
-${md.render(body)}</main>
+${md.render(markdown)}</main>
 </body>
 </html>
 `;
+  return { html, chars };
 }
 
 function copyAssets() {
@@ -56,17 +226,23 @@ function copyAssets() {
   fs.cpSync(path.join(SRC, "images"), path.join(DIST, "images"), { recursive: true });
 }
 
-export function build() {
+export async function build() {
   fs.mkdirSync(DIST, { recursive: true });
+  const chars = { body: new Set(), sample: new Set() };
   const written = pages().map((name) => {
     const out = path.join(DIST, name.replace(/\.md$/, ".html"));
-    fs.writeFileSync(out, renderPage(name));
+    const page = renderPage(name);
+    fs.writeFileSync(out, page.html);
+    for (const scope of ["body", "sample"]) {
+      for (const c of page.chars[scope]) chars[scope].add(c);
+    }
     return out;
   });
+  fs.writeFileSync(path.join(DIST, "fonts.css"), await buildFonts(chars));
   copyAssets();
   return written;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  for (const out of build()) console.log(`built ${path.relative(ROOT, out)}`);
+  for (const out of await build()) console.log(`built ${path.relative(ROOT, out)}`);
 }

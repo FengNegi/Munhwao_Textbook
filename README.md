@@ -24,8 +24,23 @@ npm run start   # http://localhost:3631/ で閲覧
 | `src/to.md` | 補足教材「토」（旧タブ2）。`dist/to.html` になる |
 | `src/style.css` | 見た目。自由に編集してよい（初期状態は Google ドキュメントの書き出しに合わせてある） |
 | `src/images/` | 画像 |
-| `dist/` | 生成物（git 管理外） |
+| `font/` | フォント原本（ビルド時に必要な字だけ切り出して woff2 化される） |
+| `dist/` | 生成物（git 管理外）。`fonts.css` と `fonts/*.woff2` も自動生成 |
 | `.github/workflows/deploy.yml` | GitHub Pages への自動デプロイ |
+
+## フォント
+
+| | 日本語 | 朝鮮語 |
+| --- | --- | --- |
+| 本文 | Source Han Sans JP | 천리마 (KP CheonRiMa KCC) |
+| 例文 (`:<: s` … `:>:`) | Source Han Serif JP (Regular / Bold) | 청봉 (KP CheongPong Bold) |
+
+`npm run build` が `font/` の原本から**実際に使われている文字だけ**を切り出して
+`dist/fonts/*.woff2`（全部で約 470KB）と `dist/fonts.css` を生成します。
+朝鮮語フォントには `unicode-range` でハングルの範囲だけを割り当ててあるので、
+同じ段落の中でも日本語は日本語フォント、ハングルは朝鮮語フォントで出ます。
+切り出した結果は `.cache/fonts/` にキャッシュされ、本文を書き換えたときだけ作り直されます。
+フォントの割り当てを変えるには `tools/build.mjs` の `FONTS` と `src/style.css` の `--sans` / `--serif` を触ってください。
 
 ## 原稿の書き方
 
@@ -38,4 +53,6 @@ npm run start   # http://localhost:3631/ で閲覧
   どちらも中身は空行で挟めば Markdown として書けます。
 - 文字色は `<span class="blue">`, `<span class="purple">`, `<span class="gray">`。囲み全体が一色なら `<div class="note purple">` のようにまとめられます。
 - 下線は `<u>`。下線の位置は `src/style.css` の `--underline-position`（既定は `under`）で一括調整できます。
+- 例文は `:<: s` と `:>:` で囲みます。`<div class="sample">` になり、Source Han Serif＋청봉が当たります。
+  一般に `:<: なまえ` … `:>:` は `<div class="なまえ">` になります（`s` だけは `sample` に読み替え）。
 - 表は `<table class="grid">`。列幅は `w-sm` / `w-md` / `w-lg`、左に寄せるなら `indent`、灰色のセルは `<td class="blocked">`。

@@ -9,6 +9,7 @@
     "build": "node tools/build.mjs"
   },
   "dependencies": {
-    "markdown-it": "^15.0.2"
+    "markdown-it": "^15.0.2",
+    "subset-font": "^2.7.0"
   }
 }

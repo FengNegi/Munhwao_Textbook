@@ -15,6 +15,7 @@ const watched = () => [
 
 const TYPES = {
   ".html": "text/html; charset=utf-8",
+  ".woff2": "font/woff2",
   ".css": "text/css; charset=utf-8",
   ".png": "image/png",
   ".jpg": "image/jpeg",
@@ -29,12 +30,15 @@ const stamp = () =>
     .join("-");
 
 let lastStamp = "";
-function rebuildIfStale() {
+let building = null;
+async function rebuildIfStale() {
   const now = stamp();
-  if (now === lastStamp) return;
+  if (now === lastStamp) return building;
   lastStamp = now;
-  build();
-  console.log(`[${new Date().toLocaleTimeString()}] rebuilt`);
+  building = build().then(() => {
+    console.log(`[${new Date().toLocaleTimeString()}] rebuilt`);
+  });
+  return building;
 }
 
 const LIVE_RELOAD = `
@@ -49,14 +53,14 @@ const LIVE_RELOAD = `
 `;
 
 http
-  .createServer((req, res) => {
+  .createServer(async (req, res) => {
     const url = new URL(req.url, `http://localhost:${PORT}`);
     if (url.pathname === "/__stamp") {
-      rebuildIfStale();
+      await rebuildIfStale();
       res.writeHead(200, { "content-type": "text/plain" }).end(lastStamp);
       return;
     }
-    rebuildIfStale();
+    await rebuildIfStale();
 
     const rel = url.pathname === "/" ? "index.html" : decodeURIComponent(url.pathname).slice(1);
     const file = path.join(DIST, rel);
@@ -73,8 +77,8 @@ http
     res.writeHead(200, { "content-type": type, "cache-control": "no-store" });
     fs.createReadStream(file).pipe(res);
   })
-  .listen(PORT, () => {
-    build();
+  .listen(PORT, async () => {
     lastStamp = stamp();
+    await build();
     console.log(`${path.relative(process.cwd(), ROOT) || "."} -> http://localhost:${PORT}/`);
   });
