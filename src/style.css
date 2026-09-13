@@ -9,7 +9,7 @@
   --doc-width: 451.4pt;      /* text column */
   --doc-margin: 72pt;        /* page margin */
   --body-size: 11pt;
-  --line-height: 1.15;
+  --line-height: 1.5;
   --paragraph-gap: 1.15em;   /* the empty paragraphs Google Docs used as gaps */
 
   /* how underlines sit relative to the text.  `under` keeps the line clear of

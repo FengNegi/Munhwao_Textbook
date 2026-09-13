@@ -6,8 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node tools/serve.mjs",
-    "build": "node tools/build.mjs",
-    "convert": "python3 tools/gdocs_to_md.py"
+    "build": "node tools/build.mjs"
   },
   "dependencies": {
     "markdown-it": "^15.0.2"
