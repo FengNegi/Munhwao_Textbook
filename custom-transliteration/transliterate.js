@@ -93,6 +93,46 @@ const CODAS = [
   "H", // ㅎ
 ];
 
+const JAMO = {
+  ㄱ: "k",
+  ㄲ: "kk",
+  ㄳ: "ks",
+  ㄴ: "n",
+  ㄵ: "nj",
+  ㄶ: "nH",
+  ㄷ: "t",
+  ㄸ: "tt",
+  ㄹ: "r",
+  ㄺ: "rk",
+  ㄻ: "rm",
+  ㄼ: "rp",
+  ㄽ: "rs",
+  ㄾ: "rth",
+  ㄿ: "rph",
+  ㅀ: "rH",
+  ㅁ: "m",
+  ㅂ: "p",
+  ㅃ: "pp",
+  ㅄ: "ps",
+  ㅅ: "s",
+  ㅆ: "ss",
+  ㅇ: "∅/ng",
+  ㅈ: "j",
+  ㅉ: "jj",
+  ㅊ: "ch",
+  ㅋ: "kh",
+  ㅌ: "th",
+  ㅍ: "ph",
+  ㅎ: "h",
+};
+
+// The compatibility jamo vowels (U+314F ㅏ … U+3163 ㅣ) run in the same order
+// as the syllable medials, so they can borrow that table wholesale.
+const COMPATIBILITY_VOWEL_BASE = 0x314f;
+VOWELS.forEach((vowel, i) => {
+  JAMO[String.fromCodePoint(COMPATIBILITY_VOWEL_BASE + i)] = vowel;
+});
+
 // Unicode's Hangul Syllables block: S = 0xAC00 + (onset × 588) + (vowel × 28) + coda
 const SYLLABLE_BASE = 0xac00;
 const CODA_COUNT = CODAS.length; // 28
@@ -111,20 +151,21 @@ function romanizeSyllable(character) {
 }
 
 // Transliterates every Hangul syllable in `text`, joining syllables that were
-// written together with ".".  Everything else is passed through untouched, and
-// ends a run of syllables: "기'발" -> "ki'par".
+// written together with ".", and writes any lone jamo as ⟨…⟩.  Everything else
+// is passed through untouched, and ends a run of syllables: "기'발" -> "ki'par".
 export function transliterate(text) {
   let out = "";
   let inSyllableRun = false;
   for (const character of text.normalize("NFC")) {
     const roman = romanizeSyllable(character);
-    if (roman === null) {
-      out += character;
-      inSyllableRun = false;
+    if (roman !== null) {
+      out += inSyllableRun ? `.${roman}` : roman;
+      inSyllableRun = true;
       continue;
     }
-    out += inSyllableRun ? `.${roman}` : roman;
-    inSyllableRun = true;
+    const jamo = JAMO[character];
+    out += jamo === undefined ? character : `⟨${jamo}⟩`;
+    inSyllableRun = false;
   }
   return out;
 }

@@ -9,3 +9,8 @@ console.assert(transliterate("않는다") === "anH.nŭn.ta");
 console.assert(transliterate("꽃을") === "kkoch.ŭr");
 console.assert(transliterate("잃다") === "irH.ta");
 console.assert(transliterate("핥다") === "harth.ta");
+
+// standalone jamo
+console.assert(transliterate("ㅂ") === "⟨p⟩");
+console.assert(transliterate("ㅗ") === "⟨o⟩");
+console.assert(transliterate("ㅏㅑㅓㅕ") === "⟨a⟩⟨ya⟩⟨ŏ⟩⟨yŏ⟩");
