@@ -33,6 +33,9 @@
     "Hiragino Kaku Gothic ProN", "Apple SD Gothic Neo", "Noto Sans JP",
     "Noto Sans KR", "Yu Gothic", Meiryo, "Malgun Gothic", sans-serif;
 
+  /* South Korean text. Avoids using the North Korean font */
+  --south: Arial, Helvetica, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+
   /* Sample sentences (`:<: s` … `:>:`): Korean in CheongPong, Japanese in
      Source Han Serif. */
   --serif: "SampleKo", "SampleJa", "Hiragino Mincho ProN", "Yu Mincho",
@@ -117,6 +120,10 @@ a {
 
 .sample {
   font-family: var(--serif);
+}
+
+.south {
+  font-family: var(--south);
 }
 
 .page-nav {
