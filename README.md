@@ -26,6 +26,7 @@ npm run start   # http://localhost:3631/ で閲覧
 | `src/images/` | 画像 |
 | `font/` | フォント原本（ビルド時に必要な字だけ切り出して woff2 化される） |
 | `dist/` | 生成物（git 管理外）。`fonts.css` と `fonts/*.woff2` も自動生成 |
+| `custom-transliteration/` | ハングルのローマ字転写（ホバー表示に使う）。`node custom-transliteration/run-tests.js` でテスト |
 | `.github/workflows/deploy.yml` | GitHub Pages への自動デプロイ |
 
 ## フォント
@@ -41,6 +42,24 @@ npm run start   # http://localhost:3631/ で閲覧
 同じ段落の中でも日本語は日本語フォント、ハングルは朝鮮語フォントで出ます。
 切り出した結果は `.cache/fonts/` にキャッシュされ、本文を書き換えたときだけ作り直されます。
 フォントの割り当てを変えるには `tools/build.mjs` の `FONTS` と `src/style.css` の `--sans` / `--serif` を触ってください。
+
+## ローマ字転写
+
+ハングルの単語にマウスを乗せると、その語が薄青く光り、ローマ字転写が吹き出しで即座に出ます。
+ビルド時に `tools/build.mjs` が本文中のハングルの語を
+`<span class="translit" data-translit="…">` で包み、`src/style.css` の `.translit:hover::after`
+が吹き出しを描いています（JS なし、遅延なし）。色や位置は `--translit-tint` /
+`--tooltip-bg` / `--tooltip-ink` と `.translit` の規則で調整できます。
+吹き出しの文字はページ自身が描くので、`ŏ` `ŭ` `⟨⟩` などもフォントのサブセットに自動で含まれます。
+
+転写そのものは `custom-transliteration/transliterate.js` です。音韻規則は一切使わず、
+字母に分解して置き換えて組み直すだけなので、않는다 は `anH.nŭn.ta`、꽃을 は `kkoch.ŭr` になります。
+単独の字母は `⟨k⟩` のように山括弧に入ります。規則を変えたら
+`node custom-transliteration/run-tests.js` でテストを回してください。
+
+語の切れ目は「連続するハングル」で決めます。사이표 は語の内部として扱うので 기'발 は `ki'par`
+でひとまとまりですが、途中にタグが入ると別の語になります
+（例えば 사람<b>이</b> は `sa.ram` と `i` の 2 つに分かれます）。
 
 ## 原稿の書き方
 

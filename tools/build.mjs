@@ -8,6 +8,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import MarkdownIt from "markdown-it";
 import subsetFont from "subset-font";
+import { transliterate } from "../custom-transliteration/transliterate.js";
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const SRC = path.join(ROOT, "src");
@@ -239,6 +240,54 @@ function frontMatter(text) {
 const escapeHtml = (s) =>
   s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
+// ------------------------------------------------------- hover romanization
+
+// A "word" is a run of Hangul — syllable blocks or lone jamo — held together
+// by the 사이표 that the textbook writes inside words (기'발, 나무''잎).
+const HANGUL_WORD = /[가-힣ㄱ-ㅣ][가-힣ㄱ-ㅣ'’]*/g;
+
+// Gives every Hangul word a data-translit attribute carrying its
+// transliteration, which style.css shows as a bubble on hover.  This walks the
+// rendered HTML rather than the Markdown so that the raw tables in the pages
+// are covered too; everything between "<" and ">" is copied through untouched,
+// which keeps tags and attributes out of reach.
+//
+// The bubble is drawn by the page itself, so the letters it needs (ŏ, ŭ, ⟨ ⟩ …)
+// are added to `chars` — otherwise the subset fonts would not carry them.
+function annotateHangul(html, chars) {
+  const wrapWords = (text) =>
+    text.replace(HANGUL_WORD, (word) => {
+      // a trailing 사이표 belongs to the punctuation, not to the word
+      const trimmed = word.replace(/['’]+$/, "");
+      const rest = word.slice(trimmed.length);
+      const roman = transliterate(trimmed);
+      for (const c of roman) {
+        chars.body.add(c);
+        chars.sample.add(c);
+      }
+      return `<span class="translit" data-translit="${escapeHtml(roman)}">${trimmed}</span>${rest}`;
+    });
+
+  let out = "";
+  let at = 0;
+  while (at < html.length) {
+    const tagStart = html.indexOf("<", at);
+    if (tagStart === -1) {
+      out += wrapWords(html.slice(at));
+      break;
+    }
+    out += wrapWords(html.slice(at, tagStart));
+    const tagEnd = html.indexOf(">", tagStart);
+    if (tagEnd === -1) {
+      out += html.slice(tagStart); // unterminated "<": leave it alone
+      break;
+    }
+    out += html.slice(tagStart, tagEnd + 1);
+    at = tagEnd + 1;
+  }
+  return out;
+}
+
 export const pages = () => fs.readdirSync(SRC).filter((f) => f.endsWith(".md"));
 
 export function renderPage(name) {
@@ -256,7 +305,7 @@ export function renderPage(name) {
 </head>
 <body>
 <main class="doc-content">
-${md.render(markdown)}</main>
+${annotateHangul(md.render(markdown), chars)}</main>
 </body>
 </html>
 `;

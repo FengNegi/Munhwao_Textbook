@@ -23,6 +23,9 @@
   --rule: #000000;           /* table / note-box borders */
   --blocked: #999999;        /* greyed-out table cells */
   --canvas: #f3f3f3;         /* area around the sheet */
+  --translit-tint: #dce8fb;  /* the hovered word */
+  --tooltip-bg: #21252b;
+  --tooltip-ink: #ffffff;
   --sheet: #ffffff;
 
   /* Bulk text: Korean in CheonRiMa, Japanese (and everything else) in Source
@@ -114,6 +117,55 @@ img {
 
 a {
   color: var(--link);
+}
+
+/* --- transliteration tooltips -------------------------------------------- */
+/* Every Hangul word carries its transliteration in a data attribute; hovering
+   tints the word and pops the bubble up above it, with no delay. */
+
+.translit {
+  position: relative;
+  cursor: help;
+  border-radius: 2px;
+}
+
+.translit:hover {
+  background: var(--translit-tint);
+}
+
+.translit:hover::after {
+  content: attr(data-translit);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 7px);
+  transform: translateX(-50%);
+  z-index: 2;
+  width: max-content;
+  max-width: 22ch;
+  padding: 3pt 5pt;
+  border-radius: 4px;
+  background: var(--tooltip-bg);
+  color: var(--tooltip-ink);
+  font-size: 9pt;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+/* the little pointer under the bubble */
+.translit:hover::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 2px);
+  transform: translateX(-50%);
+  z-index: 2;
+  border: 5px solid transparent;
+  border-top-color: var(--tooltip-bg);
+  pointer-events: none;
 }
 
 /* --- sample sentences ---------------------------------------------------- */
