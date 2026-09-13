@@ -22,8 +22,6 @@ npm run start   # http://localhost:3631/ で閲覧
 | `src/style.css` | 見た目。自由に編集してよい（初期状態は Google ドキュメントの書き出しに合わせてある） |
 | `src/images/` | 画像 |
 | `dist/` | 生成物（git 管理外） |
-| `google_docs/` | 移行元の Google ドキュメント書き出し（保存用） |
-| `tools/gdocs_to_md.py` | `google_docs/index.html` → `src/index.md`・`src/to.md` の変換スクリプト（移行用。通常は使わない） |
 
 ## 原稿の書き方
 
