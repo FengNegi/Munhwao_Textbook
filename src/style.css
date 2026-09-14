@@ -78,25 +78,47 @@ p {
   margin: 0 0 var(--paragraph-gap);
 }
 
-h1,
+h1 {
+  font-size: 24pt;
+  color: white;
+  background: #666666;
+  text-align: center;
+  margin-top: 60px;
+  margin-left: -40px;
+  margin-right: -40px;
+}
+
 h2,
-h3 {
+h3,
+h4 {
   font-weight: 400;          /* Google Docs headings are not bold here */
   line-height: var(--line-height);
 }
 
-h1 {
-  font-size: 26pt;
-  margin: 0 0 3pt;
+h2 {
+  font-size: 20pt;
+  margin-top: 40pt;
+  margin-left: -8pt;
+  border-bottom: #666666 2pt solid;
+  border-left: #666666 3pt solid;
+  padding: 0 0 0 6pt;
 }
 
-h2 {
-  font-size: 16pt;
-  margin: 18pt 0 6pt;
+/* but when h1 immediately precedes h2, no margin-top */
+h1 + h2 {
+  margin-top: 0;
 }
 
 h3 {
-  font-size: 14pt;
+  font-size: 16pt;
+  margin: 18pt -3pt 6pt;
+  border-left: #666666 2pt solid;
+  border-bottom: #666666 1pt dotted;
+  padding-left: 3pt;
+}
+
+h4 {
+  font-size: 12pt;
   margin: 16pt 0 4pt;
 }
 
@@ -117,6 +139,12 @@ img {
 
 a {
   color: var(--link);
+}
+
+blockquote {
+  margin: 0 0 var(--paragraph-gap);
+  padding-left: 18pt;
+  border-left: 1.5pt solid var(--rule);
 }
 
 /* --- transliteration tooltips -------------------------------------------- */
@@ -202,6 +230,10 @@ sup {
 
 /* --- tables -------------------------------------------------------------- */
 
+table {
+  margin-bottom: var(--paragraph-gap);
+}
+
 table.grid {
   border-collapse: collapse;
   margin: 0 0 var(--paragraph-gap);
@@ -230,6 +262,7 @@ table.grid.indent  { margin-left: 36pt; }
 
 .note {
   border: 1pt solid var(--rule);
+  border-radius: 5px;
   padding: 5pt;
   margin: 0 0 var(--paragraph-gap);
 }

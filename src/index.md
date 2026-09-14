@@ -7,46 +7,125 @@ lang: ja
 
 ![](images/image2.png)
 
-## 文字
+# 発音と音節
+
+## 子音
+
 ### 分類
 * 平音(=阻害音)
 * 激音(=有気音)
 * 濃音(=fortis)
 <table border="1" cellspacing="0" cellpadding="3" bordercolordark="white" bordercolorlight="black">
-  <tbody><tr><td colspan="2"><span class="honbun">&nbsp;</span></td><th><span class="honbun">両唇音</span></th><th><span class="honbun">歯茎音</span></th>
-      <th><span class="honbun">歯茎摩擦音</span></th><th><span class="honbun">硬口蓋破擦音</span></th>
-      <th><span class="honbun">軟口蓋音</span></th><th><span class="honbun">喉頭音</span></th></tr>
-  <tr><th rowspan="3"><span class="honbun">口音</span></th><th><span class="honbun">平音</span></th>
-      <td align="center"><span class="honbun">ㅂ</span></td><td align="center"><span class="honbun">ㄷ</span></td>
-      <td align="center"><span class="honbun">ㅅ</span></td><td align="center"><span class="honbun">ㅈ</span></td>
-      <td align="center"><span class="honbun">ㄱ</span></td><td align="center"><span class="honbun">&nbsp;</span></td></tr>
-  <tr><th><span class="honbun">激音</span></th>
-      <td align="center"><span class="honbun">ㅍ</span></td><td align="center"><span class="honbun">ㅌ</span></td>
-      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">ㅊ</span></td>
-      <td align="center"><span class="honbun">ㅋ</span></td><td align="center"><span class="honbun">ㅎ</span></td></tr>
-  <tr><th><span class="honbun">濃音</span></th>
-      <td align="center"><span class="honbun">ㅃ</span></td><td align="center"><span class="honbun">ㄸ</span></td>
-      <td align="center"><span class="honbun">ㅆ</span></td><td align="center"><span class="honbun">ㅉ</span></td>
-      <td align="center"><span class="honbun">ㄲ</span></td><td align="center"><span class="honbun">&nbsp;</span></td></tr>
-  <tr><th colspan="2"><span class="honbun">鼻音</span></th>
-      <td align="center"><span class="honbun">ㅁ</span></td><td align="center"><span class="honbun">ㄴ</span></td>
-      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">&nbsp;</span></td>
-      <td align="center"><span class="honbun">ㅇ</span></td><td align="center"><span class="honbun">&nbsp;</span></td></tr>
-  <tr><th colspan="2"><span class="honbun">流音</span></th>
-      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">ㄹ</span></td>
-      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">&nbsp;</span></td>
-      <td align="center"><span class="honbun">&nbsp;</span></td><td align="center"><span class="honbun">&nbsp;</span></td></tr>
+  <tbody><tr><td colspan="2"><span>&nbsp;</span></td><th><span>両唇音</span></th><th><span>歯茎音</span></th>
+      <th><span>歯茎摩擦音</span></th><th><span>硬口蓋破擦音</span></th>
+      <th><span>軟口蓋音</span></th><th><span>喉頭音</span></th></tr>
+  <tr><th rowspan="3"><span>口音</span></th><th><span>平音</span></th>
+      <td align="center"><span>ㅂ</span></td><td align="center"><span>ㄷ</span></td>
+      <td align="center"><span>ㅅ</span></td><td align="center"><span>ㅈ</span></td>
+      <td align="center"><span>ㄱ</span></td><td align="center"><span>&nbsp;</span></td></tr>
+  <tr><th><span>激音</span></th>
+      <td align="center"><span>ㅍ</span></td><td align="center"><span>ㅌ</span></td>
+      <td align="center"><span>&nbsp;</span></td><td align="center"><span>ㅊ</span></td>
+      <td align="center"><span>ㅋ</span></td><td align="center"><span>ㅎ</span></td></tr>
+  <tr><th><span>濃音</span></th>
+      <td align="center"><span>ㅃ</span></td><td align="center"><span>ㄸ</span></td>
+      <td align="center"><span>ㅆ</span></td><td align="center"><span>ㅉ</span></td>
+      <td align="center"><span>ㄲ</span></td><td align="center"><span>&nbsp;</span></td></tr>
+  <tr><th colspan="2"><span>鼻音</span></th>
+      <td align="center"><span>ㅁ</span></td><td align="center"><span>ㄴ</span></td>
+      <td align="center"><span>&nbsp;</span></td><td align="center"><span>&nbsp;</span></td>
+      <td align="center"><span>ㅇ</span></td><td align="center"><span>&nbsp;</span></td></tr>
+  <tr><th colspan="2"><span>流音</span></th>
+      <td align="center"><span>&nbsp;</span></td><td align="center"><span>ㄹ</span></td>
+      <td align="center"><span>&nbsp;</span></td><td align="center"><span>&nbsp;</span></td>
+      <td align="center"><span>&nbsp;</span></td><td align="center"><span>&nbsp;</span></td></tr>
 </tbody></table>
 鼻音等も平音に分類する流派もありますが、説明において特に有意義とは思えないので採用しません。
-<details class="note">
-<summary>補足</summary>
 
-TODO: 北朝鮮における分類
+軟口蓋鼻音 /ŋ/ は語頭・発話頭に立つことがなく、さらには閉音節の直後に来ることもありません。その由来や音声的実現にかかわらず、/ŋ/ は常にコーダしか占めないとして分析し、そのように表記されます。なお、コーダ位置で軟口蓋鼻音を表すために用いられる文字ㅇは、オンセット位置で用いられるとゼロ子音を表します。
 
-</details>
+:<: b 歴史言語学的に興味深い例
+
+漢語「鮒魚」（鄭張尚芳の再構音での中古漢語：<span>/bɨo<sup>H</sup> ŋɨʌ/</span>）に由来する붕어「フナ」という語は、本来オンセット位置にあった軟口蓋鼻音 /ŋ/ を直前の音節のコーダと見る形で書かれる。
+
+:>:
+
+:<: b 北朝鮮における分類
+
+TODO
+
+:>:
+
+## 単母音（でしか発音されない母音字）
+
+実態としては、七母音体系と見るべきでしょう。
+
+<table border="1" cellspacing="0" cellpadding="3" bordercolordark="white" bordercolorlight="black">
+  <tbody>
+  <tr><td><span>&nbsp;</span></td><th><span>前舌</span></th><th><span>中舌</span></th>
+      <th colspan="2"><span>後舌</span></th></tr>
+   <tr><td><span>&nbsp;</span></td><th colspan="3"><span>非円唇</span></th>
+      <th><span>円唇</span></th></tr>
+      <tr><td align="center">狭</td><td align="center">ㅣ</td><td></td><td align="center">ㅡ</td><td align="center">ㅜ</td></tr>
+      <tr><td align="center">中段</td><td align="center">ㅔ, ㅐ</td><td align="center">ㅓ</td><td></td><td align="center">ㅗ</td></tr>
+      <tr><td align="center">広</td><td></td><td align="center">ㅏ</td><td></td><td></td></tr>
+</tbody></table>      
+
+### ㅔとㅐの発音について
+
+規範としてはこれらはそれぞれ半狭・半広で発音されるということになってはいますが、朝鮮中央テレビのアナウンサーも正書法上のこれらの区別と音声での反映との間に一貫性がないという研究もあるため、対立が残存しているとは言い難いとhsjoihsは判断します。
+
+<blockquote>
+
+Notably, older anchor Ri Chun-hee and even Kim Jong-un both have /e/ and /ɛ/ merged.
+
+https://en.wikipedia.org/wiki/Korean_phonology#Vowels
+
+</blockquote>
+
+### ㅓの発音について
+ほぼ /ə/
+南のㅓよりは｢狭く、前舌め｣
+(※2000年代以前のソウル方言のㅓと近いかもしれない)
+
+## 半母音+母音（として発音されうる母音字）
+
+### /j/ を伴うもの
+
+先ほど見せた七母音を表す八種の母音字のうち、短い棒を持つㅏㅓㅗㅜㅐㅔは、短い棒の本数を倍増させることにより、「/j/ + 母音」を表します。
+
+### 円唇性を伴うもの
+
+後舌かつ円唇の単母音を表すㅗやㅜの字と、前舌または中舌の単母音を表すㅣㅔㅐㅓㅏの字を組み合わせることにより、以下の複合字母が構築されます。
+
+| | ㅜ | ㅗ |
+|:--:|:--:|:--:|
+| ㅣ | ㅟ |ㅚ |
+| ㅔ | ㅞ |  |
+| ㅐ | | ㅙ |
+| ㅓ | ㅝ | | 
+| ㅏ | |  ㅘ |
+
+これらは発音に円唇性を伴います。
+
+ㅞㅙㅝㅘは（規範も実態も）対応する前舌または中舌母音の前に /w/ を発音するという字母です。
+ㅟ は単母音 /y/ で発音される例もたまに耳にしますが、多くの場合実態は /wi ~ ɥi/ です。
+ㅚ は単母音 /ø/ での発音される場合もㅞやㅙのように発音されることも共に珍しくないという印象です。
+
+### ㅢ
+
+TODO
+
+# 文字の詳細
+
+## 文字順
+
+
 文字順は韓国と異なります
 ㄱㄴㄷㄹㅁㅂㅅㅇㅈ ㅊㅋㅌㅍㅎ ㄲㄸㅃㅆㅉ
 ㅏㅑㅓㅕㅗㅛㅜㅠㅡㅣㅐㅒㅔㅖㅚㅟㅢㅘㅝㅙㅞ
+
+## 文字名
 
 文字名は [子音]ㅣ으[子音]
 ㄱ: 기윽 (南: <span class="south">기<u><b>역</b></u></span>)
@@ -81,16 +160,13 @@ TODO: 北朝鮮における分類
 また、各々 [子音] + 으 と呼ぶこともできる。
 그, 느, 드, 르, 므, 브, 스, 으, 즈, 츠, 크, 트, 프, 흐, 끄, 뜨, 쁘, 쓰, 쯔
 
-ㅌのデザイン差について
+## ㅌのデザイン差について
 
 ![](images/image6.png)
 
-ㅓの発音について
-ほぼ /ə/
-南のㅓよりは｢狭く、前舌め｣
-(※2000年代以前のソウル方言のㅓと近いかもしれない)
+# 綴りと発音の不一致
 
-パッチムについて
+## パッチムについて
 朝鮮語で用いるパッチムとその発音は次の通り。
 
 ㄱ, ㄳ, ㅋ, ㄲ: [ㄱ]
@@ -468,6 +544,8 @@ TODO: 北朝鮮における分類
 노랑색(黄-色), 부른색(青-色), 우리식(我々式)
 
 :>:
+
+# 例文
 
 ## 《내 마음 즐거워라 | 私の心ははずむ》
 
