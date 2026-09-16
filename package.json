@@ -5,7 +5,7 @@
   "description": "言語にかなりの興味・関心・情熱がある人のための文化語教材",
   "type": "module",
   "scripts": {
-    "start": "node tools/serve.mjs; node tools/serve.mjs",
+    "start": "node tools/serve.mjs",
     "build": "node tools/build.mjs"
   },
   "dependencies": {
