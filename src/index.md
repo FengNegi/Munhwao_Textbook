@@ -285,7 +285,7 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 <th><small>〜します。</small><br>[-ㅁ니다]<br> /<br>[-씀니다]</th>
 <th><small>〜します。</small><br>[-오]<br> /<br>[-쏘]</th>
 <th><small>〜しよう</small><br>[-자]</th>
-<th><small>〜して、</small><br>[-어]<br> /<br>[-아]</th>
+<th><small>〜して</small><br>[-어]<br> /<br>[-여]<br> /<br>[-아]</th>
 <td></td>
 </tr>
 <tr class="foo">
@@ -297,7 +297,7 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 <td>[주오]</td>
 <td>[주자]</td>
 <td>[주어] / [<b style="color:blue; text-decoration:none;">줘</b>]</td>
-<th rowspan="3" style="vertical-align:middle;">母・ㄹ</th>
+<th rowspan="5" style="vertical-align:middle;">母・ㄹ</th>
 </tr>
 <tr>
 <th><small>使う</small><br>[쓰-]</th>
@@ -308,6 +308,26 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 <td>[쓰오]</td>
 <td>[쓰자]</td>
 <td>[<b style="color:blue; text-decoration:none;">써</b>]</td>
+</tr>
+<tr>
+<th><small>する</small><br>[하-]</th>
+<td>[하고]</td>
+<td>[하는]</td>
+<td>[하다가]</td>
+<td>[함니다]</td>
+<td>[하오]</td>
+<td>[하자]</td>
+<td>[하여] / [<b style="color:blue; text-decoration:none;">해</b>]</td>
+</tr>
+<tr>
+<th><small>なる</small><br>[되-]</th>
+<td>[되고]</td>
+<td>[되는]</td>
+<td>[되다가]</td>
+<td>[됨니다]</td>
+<td>[되오]</td>
+<td>[되자]</td>
+<td>[되여] / [<b style="color:blue; text-decoration:none;">돼</b>]</td>
 </tr>
 <tr>
 <th><small>住む</small><br>[살-]</th>
@@ -352,7 +372,7 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 <th rowspan="3" style="vertical-align:middle;">濃音化</th>
 </tr>
 <tr>
-<th><small>似る</small><br>[담-] / [달ㅁ-]</th>
+<th><small>似る</small><br>[담-] /<br> [달ㅁ-]</th>
 <td>[담<b style="color:red">꼬</b>]</td>
 <td>[담는]</td>
 <td>[담<b style="color:red">따</b>가]</td>
@@ -362,7 +382,7 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 <td>[<b style="color:blue; text-decoration:none;">달마</b>]</td>
 </tr>
 <tr>
-<th><small>載せる</small><br>[언-] / [언ㅈ-]</th>
+<th><small>載せる</small><br>[언-] /<br> [언ㅈ-]</th>
 <td>[언<b style="color:red">꼬</b>]</td>
 <td>[언는]</td>
 <td>[언<b style="color:red">따</b>가]</td>
@@ -373,6 +393,22 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 </tr>
 </table>
 
+:<: b <b style="color:blue; text-decoration:none;">青文字</b>についての補足
+
+「綴りと発音の不一致」とはあまり関係しないので補足送りとしているが、「〜して」を表す[-어]/[-여]/[-아]は以下のようにして決まる。
+
+- 하다 → 여
+- かつて /j/ 終わりの語幹であった、構成要素にㅣを含む母音字で終わる母音語幹 → 여
+- ㅗ, ㅏ, ㅑの影響力が強い → 아<ul><li>具体的な条件：「最終音節の母音が ㅗ, ㅏ, ㅑ」または「語幹が複音節かつ ㅡ 終わりであって、その1つ前の音節の母音が ㅗ, ㅏ, ㅑ」</li></ul>
+
+また、これらの語尾は、
+
+- 直前にコーダがあれば、それをオンセットとする
+- 直前の母音と適宜縮合する
+
+といった現象を起こす。これらの現象に若干注意を惹いてもらえるよう、ひっくるめてここでは青文字で示した。
+
+:>:
 
 
 ## 体言
