@@ -7,6 +7,12 @@ lang: ja
 
 ![](images/image2.png)
 
+# 参考文献
+
+- https://upload.wikimedia.org/wikipedia/commons/0/0b/조선말규범집(2010).pdf
+- https://upload.wikimedia.org/wikipedia/commons/9/94/조선말규범집(1988).pdf
+- https://upload.wikimedia.org/wikipedia/commons/9/9d/조선말규범집(1966).pdf
+
 # 発音と音節
 
 ## 子音
@@ -58,7 +64,7 @@ TODO
 
 ## 単母音（でしか発音されない母音字）
 
-実態としては、七母音体系と見るべきでしょう。
+実態としては、七母音体系を基本とすると見るべきでしょう。
 
 <table border="1" cellspacing="0" cellpadding="3" bordercolordark="white" bordercolorlight="black">
   <tbody>
