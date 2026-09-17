@@ -263,26 +263,26 @@ table {
   margin-bottom: var(--paragraph-gap);
 }
 
-table.grid {
+table {
   border-collapse: collapse;
   margin: 0 0 var(--paragraph-gap);
 }
 
-table.grid td,
-table.grid th {
+table td,
+table th {
   border: 1pt solid var(--rule);
   padding: 5pt;
   vertical-align: top;
 }
 
-table.grid .blocked {
+table .blocked {
   background: var(--blocked);
 }
 
-table.grid.w-sm td { width: 75.2pt; }
-table.grid.w-md td { width: 112.9pt; }
-table.grid.w-lg td { width: 225.7pt; }
-table.grid.indent  { margin-left: 36pt; }
+table.w-sm td { width: 75.2pt; }
+table.w-md td { width: 112.9pt; }
+table.w-lg td { width: 225.7pt; }
+table.indent  { margin-left: 36pt; }
 
 /* --- note boxes ---------------------------------------------------------- */
 /* Single-cell tables in the original document: 補足 / 経緯 / 実例 sidebars.
