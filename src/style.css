@@ -211,6 +211,35 @@ blockquote {
   text-align: right;
 }
 
+table.qq {
+  text-align: center;
+}
+
+table.qq tr td {
+  break-inside: avoid;padding: 1pt !important;
+  vertical-align: middle;
+}
+
+table.qq th {
+  background-color: #ddd;
+}
+
+table.qq tr:not(:first-child) th:first-child  {
+  max-width: 0em;
+}
+
+table.qq tr:not(:first-child) th:last-child  {
+  max-width: 0em;
+}
+
+table.qq tr.foo td {
+   border-top-width: 3px
+}
+
+table.qq tr.foo th {
+   border-top-width: 3px
+}
+
 /* --- inline -------------------------------------------------------------- */
 
 u,
