@@ -214,7 +214,7 @@ blockquote {
 /* --- inline -------------------------------------------------------------- */
 
 u,
-.underline {
+.underline, b {
   text-decoration: underline;
   text-underline-position: var(--underline-position);
   text-decoration-skip-ink: none;
