@@ -47,6 +47,14 @@ const FONTS = [
     script: "ja",
   },
   {
+    family: "TextbookJa",
+    weight: 700,
+    file: "SourceHanSansJP-Bold.otf",
+    name: "source-han-sans-jp-bold",
+    scope: "body",
+    script: "ja",
+  },
+  {
     family: "TextbookKo",
     weight: 400,
     file: "KP-CheonRiMa-KCC.ttf",

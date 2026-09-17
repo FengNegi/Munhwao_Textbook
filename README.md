@@ -33,11 +33,15 @@ npm run start   # http://localhost:3631/ で閲覧
 
 | | 日本語 | 朝鮮語 |
 | --- | --- | --- |
-| 本文 | Source Han Sans JP | 천리마 (KP CheonRiMa KCC) |
+| 本文 | Source Han Sans JP (Normal / Bold) | 천리마 (KP CheonRiMa KCC) |
 | 例文 (`:<: s` … `:>:`) | Source Han Serif JP (Regular / Bold) | 청봉 (KP CheongPong Bold) |
 
+太字は本物のボールド体を読み込んでいます（ブラウザが線を太らせる合成ボールドではありません）。
+ただし**朝鮮語の本文だけは例外**で、천리마にボールドがないため `<b>` は合成ボールドになります。
+ハングルの太字をはっきり見せたい箇所は、例文の囲み（청봉）を使うのが確実です。
+
 `npm run build` が `font/` の原本から**実際に使われている文字だけ**を切り出して
-`dist/fonts/*.woff2`（全部で約 470KB）と `dist/fonts.css` を生成します。
+`dist/fonts/*.woff2`（全部で約 800KB）と `dist/fonts.css` を生成します。
 朝鮮語フォントには `unicode-range` でハングルの範囲だけを割り当ててあるので、
 同じ段落の中でも日本語は日本語フォント、ハングルは朝鮮語フォントで出ます。
 切り出した結果は `.cache/fonts/` にキャッシュされ、本文を書き換えたときだけ作り直されます。
