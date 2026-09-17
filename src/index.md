@@ -56,10 +56,6 @@ lang: ja
 
 :>:
 
-## ㅌのデザイン差について
-
-![](images/image6.png)
-
 ## 単母音（でしか発音されない母音字）
 
 実態としては、七母音体系を基本とすると見るべきでしょう。
@@ -165,7 +161,41 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 時折律儀に[ㅢ]で発音する人もいるが、圧倒的少数なので見かけた際はレアケースだなぁくらいに思っておくと良い。
 :>:
 
+## 文化語の音節
+
+文化語の音節は (C)(G)V(C)、つまり
+
+- 前述の表から /ŋ/ を除いた頭子音（ゼロでありうる）
+- 母音もしくは「半母音 + 母音」
+- 以下に述べる 7 種類のコーダ、もしくはゼロ
+
+によって構成される。
+
+### 7 種類のコーダ
+
+コーダ位置では、摩擦音・破擦音が表れない。
+また、口音に存在した平音・激音・濃音の対立が潰れる。この教材では、慣習に合わせて平音の字母を用いて表記するが、archiphoneme であることを明記すべく ⫽ㅂ⫽ などと表記することとする。
+
+<table border="1" cellspacing="0" cellpadding="3" bordercolordark="white" bordercolorlight="black">
+  <tbody><tr><td><span>&nbsp;</span></td><th><span>両唇音</span></th><th><span>歯茎音</span></th>
+      <th><span>軟口蓋音</span></th></tr>
+  <tr><th><span>口音</span></th>
+      <td align="center"><span>⫽ㅂ⫽</span></td><td align="center"><span>⫽ㄷ⫽</span></td>
+      <td align="center"><span>⫽ㄱ⫽</span></td>
+  <tr><th><span>鼻音</span></th>
+      <td align="center"><span>⫽ㅁ⫽</span></td><td align="center"><span>⫽ㄴ⫽</span></td>
+      <td align="center"><span>⫽ㅇ⫽</span></td>
+  <tr><th><span>流音</span></th>
+      <td align="center"><span>&nbsp;</span></td><td align="center"><span>⫽ㄹ⫽</span></td>
+      <td align="center"><span>&nbsp;</span></td>
+</tbody></table>
+
 # 文字の詳細
+
+## ㅌのデザイン差について
+
+![](images/image6.png)
+
 
 ## 文字順
 
