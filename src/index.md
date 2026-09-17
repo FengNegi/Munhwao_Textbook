@@ -7,6 +7,12 @@ lang: ja
 
 ![](images/image2.png)
 
+# 参考文献
+
+- https://upload.wikimedia.org/wikipedia/commons/0/0b/조선말규범집(2010).pdf
+- https://upload.wikimedia.org/wikipedia/commons/9/94/조선말규범집(1988).pdf
+- https://upload.wikimedia.org/wikipedia/commons/9/9d/조선말규범집(1966).pdf
+
 # 発音と音節
 
 ## 子音
@@ -56,7 +62,7 @@ lang: ja
 
 ## 単母音（でしか発音されない母音字）
 
-実態としては、七母音体系と見るべきでしょう。
+実態としては、七母音体系を基本とすると見るべきでしょう。
 
 <table border="1" cellspacing="0" cellpadding="3" bordercolordark="white" bordercolorlight="black">
   <tbody>
@@ -92,7 +98,7 @@ https://en.wikipedia.org/wiki/Korean_phonology#Vowels
 
 先ほど見せた七母音を表す八種の母音字のうち、短い棒を持つㅏㅓㅗㅜㅐㅔは、短い棒の本数を倍増させることにより、「/j/ + 母音」を表します。
 
-ㅏ→ㅑ /ja/, ㅓ→ㅕ /jŏ/, ㅗ→ㅛ /jo/, ㅜ→ㅠ /yu/, ㅐ→ㅒ /jae/, ㅔ→ㅖ /je/
+ㅏ→ㅑ /ja/, ㅓ→ㅕ /jŏ/, ㅗ→ㅛ /jo/, ㅜ→ㅠ /ju/, ㅐ→ㅒ /jae/, ㅔ→ㅖ /je/
 
 
 ### ㅖ
@@ -126,7 +132,24 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 
 ### ㅢ
 
-TODO
+規範では「二重母音で発音することを原則とする」と書きつつも、附則 (불임) にて
+
+- 子音が結合したときや、単語の途中および末尾にある ㅢ は [ㅣ] で発音することを許容する
+   - 例: 희망[희망/히망] 띄우다[띠우다], 씌우다[씨우다]
+   - 결의문[겨릐문/겨리문], 정의 [정이], 의의 [의이], 회의[회의/회이]
+- 属格の토として使われる場合一部 [ㅔ]と同様に発音することを許容する
+   - 例: 혁명의 북소리 [형명에 북쏘리]
+   - 우리의 집은 당의 품[우리에 지븐 당에 품] 
+
+と記載されている。<small>（ㅢ と ㅣ の両方を併記する場合と、ㅣ しか提示していない場合があるが、その差は少なくともhsjoihsには謎。）</small>
+
+実用上は、
+
+- 語頭に来ているときには [ɰi]
+- 属格助詞は [e]
+- それ以外なら [i]
+
+とすればよかろう。
 
 # 文字の詳細
 
