@@ -270,9 +270,110 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 
 [ㅡ] を用いずに語幹が直後の接辞と結合する際、直後の接辞に平音を許さず、代わりに<b><u>濃音</u></b>が登場する。
 
-## 用言の活用例
+## 用言の活用
 
-TODO
+まず、[ㅡ] を用いうる接辞について述べる。 TODO
+
+次に、[ㅡ] を用いることがない接辞について例示する。これらは [ㄱ][ㄴ][ㄷ][ㅁ][ㅈ][ㅆ]または母音のどれかで始まる。
+
+<table class="grid w-sm qq" style="font-size: 75%">
+<tr>
+<td>&nbsp;</td>
+<th><small>〜して、</small><br>[-고]</th>
+<th><small>〜する…</small><br>[-는]</th>
+<th><small>〜してたら、</small><br>[-다가]</th>
+<th><small>〜します。</small><br>[-ㅁ니다]<br> /<br>[-씀니다]</th>
+<th><small>〜します。</small><br>[-오]<br> /<br>[-쏘]</th>
+<th><small>〜しよう</small><br>[-자]</th>
+<th><small>〜して、</small><br>[-어]<br> /<br>[-아]</th>
+<td></td>
+</tr>
+<tr class="foo">
+<th><small>あげる</small><br> [주-]</th>
+<td>[주고]</td>
+<td>[주는]</td>
+<td>[주다가]</td>
+<td>[줌니다]</td>
+<td>[주오]</td>
+<td>[주자]</td>
+<td>[주어] / [<b style="color:blue; text-decoration:none;">줘</b>]</td>
+<th rowspan="3" style="vertical-align:middle;">母・ㄹ</th>
+</tr>
+<tr>
+<th><small>使う</small><br>[쓰-]</th>
+<td>[쓰고]</td>
+<td>[쓰는]</td>
+<td>[쓰다가]</td>
+<td>[씀니다]</td>
+<td>[쓰오]</td>
+<td>[쓰자]</td>
+<td>[<b style="color:blue; text-decoration:none;">써</b>]</td>
+</tr>
+<tr>
+<th><small>住む</small><br>[살-]</th>
+<td>[살고]</td>
+<td>[사는]</td>
+<td>[살다가]</td>
+<td>[삼니다]</td>
+<td>[사오]</td>
+<td>[살자]</td>
+<td>[<b style="color:blue; text-decoration:none;">사라</b>]</td>
+</tr>
+<tr class="foo">
+<th><small>置く</small><br>[노-]</th>
+<td>[노<b style="color:red">코</b>]</td>
+<td>[노는]</td>
+<td>[노<b style="color:red">타</b>가]</td>
+<td>[노씀니다]</td>
+<td>[노쏘]</td>
+<td>[노<b style="color:red">차</b>]</td>
+<td>[노아] / [<b style="color:blue; text-decoration:none;">놔</b>]</td>
+<th rowspan="2" style="vertical-align:middle;">激音化</th>
+</tr>
+<tr>
+<th><small>〜でない</small><br>[안-]</th>
+<td>[안<b style="color:red">코</b>]</td>
+<td>[안는]</td>
+<td>[안<b style="color:red">타</b>가]</td>
+<td>[안씀니다]</td>
+<td>[안쏘]</td>
+<td>[안<b style="color:red">차</b>]</td>
+<td>[<b style="color:blue; text-decoration:none;">아나</b>]</td>
+</tr>
+<tr class="foo">
+<th><small>込める</small><br>[담-]</th>
+<td>[담<b style="color:red">꼬</b>]</td>
+<td>[담는]</td>
+<td>[담<b style="color:red">따</b>가]</td>
+<td>[담씀니다]</td>
+<td>[담쏘]</td>
+<td>[담<b style="color:red">짜</b>]</td>
+<td>[<b style="color:blue; text-decoration:none;">다마</b>]</td>
+<th rowspan="3" style="vertical-align:middle;">濃音化</th>
+</tr>
+<tr>
+<th><small>似る</small><br>[담-] / [달ㅁ-]</th>
+<td>[담<b style="color:red">꼬</b>]</td>
+<td>[담는]</td>
+<td>[담<b style="color:red">따</b>가]</td>
+<td>[담씀니다]</td>
+<td>[담쏘]</td>
+<td>[담<b style="color:red">짜</b>]</td>
+<td>[<b style="color:blue; text-decoration:none;">달마</b>]</td>
+</tr>
+<tr>
+<th><small>載せる</small><br>[언-] / [언ㅈ-]</th>
+<td>[언<b style="color:red">꼬</b>]</td>
+<td>[언는]</td>
+<td>[언<b style="color:red">따</b>가]</td>
+<td>[언씀니다]</td>
+<td>[언쏘]</td>
+<td>[언<b style="color:red">짜</b>]</td>
+<td>[언<b style="color:blue; text-decoration:none;">저</b>]</td>
+</tr>
+</table>
+
+
 
 ## 体言
 
