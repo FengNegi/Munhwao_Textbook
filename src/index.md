@@ -151,6 +151,10 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 
 とすればよかろう。
 
+:<: b ねぎ補足
+時折律儀に[ㅢ]で発音する人もいるが、圧倒的少数なので見かけた際はレアケースだなぁくらいに思っておくと良い。
+:>:
+
 # 文字の詳細
 
 ## 文字順
@@ -384,20 +388,26 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 <tr>
 <td>[ㅂ]</td>
 <td>ㅁㅁ</td>
-<td></td>
-<td>[ㅁ]</td>
+<td>ㅁㄴ</td>
+<td>ㅁㄴ</td>
 </tr>
 <tr>
-<td>[ㄴ]</td>
 <td>[ㄷ]</td>
-<td>[ㄴ]</td>
-<td>[ㄴ]</td>
+<td>ㄴㅁ</td>
+<td>ㄴㄴ</td>
+<td>ㄴㄴ</td>
+</tr>
+<tr>
+<td>[ㄱ]</td>
+<td>ㅇㅁ</td>
+<td>ㅇㄴ</td>
+<td>ㅇㄴ</td>
 </tr>
 <tr>
 <td>[ㅇ]</td>
-<td>[ㄱ]</td>
-<td>[ㅇ]</td>
-<td>[ㅇ]</td>
+<td>ㅇㅁ</td>
+<td>ㅇㄴ</td>
+<td>ㅇㄴ</td>
 </tr>
 </table>
 
