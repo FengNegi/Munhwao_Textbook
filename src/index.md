@@ -387,7 +387,10 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 </tr>
 </table>
 
-次に、[ㅡ] を用いることがない接辞について例示する。これらは [ㄱ][ㄴ][ㄷ][ㅁ][ㅈ][ㅆ]または母音のどれかで始まる。
+次に、[ㅡ] を用いることがない接辞について例示する。
+これらは [ㄱ][ㄴ][ㄷ][ㅁ][ㅈ][ㅆ]または母音のどれかで始まる。
+激音化・濃音化用言が口音[ㄱ][ㄷ][ㅈ]で始まる接辞と結合すると、これらを激音化・濃音化する。
+激音化用言が[ㄴ]で始まる接辞と結合するときの例外的挙動に<b style="color:magenta">特に注意</b>。
 
 <table class="grid w-sm qq" style="font-size: 75%">
 <tr>
@@ -455,13 +458,13 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 <tr class="foo">
 <th><small>置く</small><br>[노-]</th>
 <td>[노<b style="color:red">코</b>]</td>
-<td>[노는]</td>
+<td>[<b style="color:magenta">논</b>는]</td>
 <td>[노<b style="color:red">타</b>가]</td>
 <td>[노씀니다]</td>
 <td>[노쏘]</td>
 <td>[노<b style="color:red">차</b>]</td>
 <td>[노아] / [<b style="color:blue; text-decoration:none;">놔</b>]</td>
-<th rowspan="2" style="vertical-align:middle;">激音化</th>
+<th rowspan="3" style="vertical-align:middle;">激音化</th>
 </tr>
 <tr>
 <th><small>〜でない</small><br>[안-]</th>
@@ -472,6 +475,16 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 <td>[안쏘]</td>
 <td>[안<b style="color:red">차</b>]</td>
 <td>[<b style="color:blue; text-decoration:none;">아나</b>]</td>
+</tr>
+<tr>
+<th><small>失う</small><br>[일-]</th>
+<td>[일<b style="color:red">코</b>]</td>
+<td>[일<b style="color:magenta">른</b>]</td>
+<td>[일<b style="color:red">타</b>가]</td>
+<td>[일씀니다]</td>
+<td>[일쏘]</td>
+<td>[일<b style="color:red">차</b>]</td>
+<td>[<b style="color:blue; text-decoration:none;">이러</b>]</td>
 </tr>
 <tr class="foo">
 <th><small>込める</small><br>[담-]</th>
