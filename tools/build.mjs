@@ -57,8 +57,17 @@ const FONTS = [
   {
     family: "TextbookKo",
     weight: 400,
-    file: "KP-CheonRiMa-KCC.ttf",
+    file: "KCC-KP-CheonRiMa-Light-KP-2011KPS.ttf",
     name: "kp-cheonrima",
+    scope: "body",
+    script: "ko",
+    unicodeRange: HANGUL_RANGE,
+  },
+  {
+    family: "TextbookKo",
+    weight: 700,
+    file: "KP-CheonRiMa-KCC.ttf",
+    name: "kp-cheonrima-bold",
     scope: "body",
     script: "ko",
     unicodeRange: HANGUL_RANGE,
