@@ -244,26 +244,26 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 ## パッチムについて
 朝鮮語で用いるパッチムとその発音は次の通り。
 
-ㄱ, ㄳ, ㅋ, ㄲ: [ㄱ]
+ㄱ, ㄳ, ㅋ, ㄲ: ⫽ㄱ⫽
 
-ただし、動詞･形容詞の語幹末に来た《ㄺ》は《ㄱ》の前で[ㄹ]
+ただし、動詞･形容詞の語幹末に来た《ㄺ》は《ㄱ》の前で⫽ㄹ⫽
 
-ㄴ, ㄵ, ㄶ: [ㄴ]
+ㄴ, ㄵ, ㄶ: ⫽ㄴ⫽
 
-ㄷ, ㅌ, ㅅ, ㅆ, ㅈ, ㅊ: [ㄷ]
+ㄷ, ㅌ, ㅅ, ㅆ, ㅈ, ㅊ: ⫽ㄷ⫽
 
-ㅂ, ㅍ, ㄼ, ㄿ, ㅄ: [ㅂ]
+ㅂ, ㅍ, ㄼ, ㄿ, ㅄ: ⫽ㅂ⫽
 
-ただし、形容詞語幹末に来た《ㄼ》は《ㄱ》の前で[ㄹ]
-そして、《여덟》(固有数詞 8)のとき[ㄹ]
+ただし、形容詞語幹末に来た《ㄼ》は《ㄱ》の前で ⫽ㄹ⫽
+そして、《여덟》(固有数詞 8)のとき ⫽ㄹ⫽
 
-ㄽ, ㄾ, ㅀ: [ㄹ]
+ㄽ, ㄾ, ㅀ: ⫽ㄹ⫽
 
-ㅁ, ㄻ: [ㅁ]
+ㅁ, ㄻ: ⫽ㅁ⫽
 
-ㅇ: [ㅇ]
+ㅇ: ⫽ㅇ⫽
 
-ㅎ: 単語の最後の音節と《ㅅ》や《ㄴ》で始まる토(後述)の前で[ㄷ]のように発音する。
+ㅎ: 単語の最後の音節と《ㅅ》や《ㄴ》で始まる토(後述)の前で ⫽ㄷ⫽ のように発音する。
 
 :<: b 補足
 
@@ -340,7 +340,7 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 <td>ㄱ</td>
 </tr>
 <tr>
-<td>[ㅂ]</td>
+<td>⫽ㅂ⫽ + …</td>
 <td>[ㅃ]</td>
 <td class="blocked"></td>
 <td class="blocked"></td>
@@ -348,7 +348,7 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 <td class="blocked"></td>
 </tr>
 <tr>
-<td>[ㄷ]</td>
+<td>⫽ㄷ⫽ + …</td>
 <td class="blocked"></td>
 <td>[ㄸ]</td>
 <td class="blocked"></td>
@@ -356,7 +356,7 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 <td class="blocked"></td>
 </tr>
 <tr>
-<td>[ㄱ]</td>
+<td>⫽ㄱ⫽ + …</td>
 <td class="blocked"></td>
 <td class="blocked"></td>
 <td class="blocked"></td>
@@ -377,7 +377,7 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 <td><span class="blue">ㄱ</span></td>
 </tr>
 <tr>
-<td>[ㅂ]</td>
+<td>⫽ㅂ⫽ + …</td>
 <td>[ㅃ]</td>
 <td><span class="blue"><u>[ㄸ]</u></span></td>
 <td><span class="blue"><u>[ㅉ]</u></span></td>
@@ -385,7 +385,7 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 <td><span class="blue"><u>[ㄲ]</u></span></td>
 </tr>
 <tr>
-<td>[ㄷ]</td>
+<td>⫽ㄷ⫽ + …</td>
 <td><span class="blue"><u>[ㅃ]</u></span></td>
 <td>[ㄸ]</td>
 <td><span class="blue"><u>[ㅉ]</u></span></td>
@@ -393,7 +393,7 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 <td><span class="blue"><u>[ㄲ]</u></span></td>
 </tr>
 <tr>
-<td>[ㄱ]</td>
+<td>⫽ㄱ⫽ + …</td>
 <td><span class="blue"><u>[ㅃ]</u></span></td>
 <td><span class="blue"><u>[ㄸ]</u></span></td>
 <td><span class="blue"><u>[ㅉ]</u></span></td>
@@ -427,11 +427,11 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 <td>… + ㄹ</td>
 </tr>
 <tr>
-<td>[ㅁ] + …</td>
+<td>⫽ㅁ⫽ + …</td>
 <td>ㅁㄴ</td>
 </tr>
 <tr>
-<td>[ㅇ] + …</td>
+<td>⫽ㅇ⫽ + …</td>
 <td>ㅇㄴ</td>
 </tr>
 </table>
@@ -454,7 +454,7 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 
 :>:
 
-[ㅇ] + ㄹ でありながら「ㄹと発音することを原則」の例として「용광로」が掲示されているのは奇妙であり、第24項と矛盾する。第5項でのこれ以外の例は全て語頭のㄹについての例示であるため、hsjoihs は「용광로」の混入はミスであると見なし、[ㅇ] + ㄹ は ㅇㄴ と発音するとみなすこととする。
+⫽ㅇ⫽ + ㄹ でありながら「ㄹと発音することを原則」の例として「용광로」が掲示されているのは奇妙であり、第24項と矛盾する。第5項でのこれ以外の例は全て語頭のㄹについての例示であるため、hsjoihs は「용광로」の混入はミスであると見なし、⫽ㅇ⫽ + ㄹ は ㅇㄴ と発音するとみなすこととする。
 
 
 
@@ -468,19 +468,19 @@ https://youtu.be/xO7FqapK8Gc?si=X50YaOb_efP0vAwv&t=907
 <td>… + ㄹ</td>
 </tr>
 <tr>
-<td>[ㅂ] + …</td>
+<td>⫽ㅂ⫽ + …</td>
 <td>ㅁㅁ (1)</td>
 <td>ㅁㄴ (1)</td>
 <td>ㅁㄴ (1+2)</td>
 </tr>
 <tr>
-<td>[ㄷ] + …</td>
+<td>⫽ㄷ⫽ + …</td>
 <td>ㄴㅁ (1)</td>
 <td>ㄴㄴ (1)</td>
 <td>(おそらく用例無し)</td>
 </tr>
 <tr>
-<td>[ㄱ] + …</td>
+<td>⫽ㄱ⫽ + …</td>
 <td>ㅇㅁ (1)</td>
 <td>ㅇㄴ (1)</td>
 <td>ㅇㄴ (1+2)</td>
