@@ -270,9 +270,122 @@ hsjoihs は、朝鮮語の用言を【母音・リウル語幹】【激音化語
 
 [ㅡ] を用いずに語幹が直後の接辞と結合する際、直後の接辞に平音を許さず、代わりに<b><u>濃音</u></b>が登場する。
 
+なお、濃音化語幹の用言の一部には、語幹として √(C)(G)V<b>C</b> と √(C)(G)V<b>CC</b> の両形を有するものがある。そのような語の場合、直後に母音が現れるときは長いほうの語幹を、さもなくば短いほうの語幹を用いる。
+
 ## 用言の活用
 
-まず、[ㅡ] を用いうる接辞について述べる。 TODO
+まず、[ㅡ] を用いうる接辞について述べる。
+
+- 母音・リウル語幹のときには [ㅡ] を用いない
+- 激音化語幹・濃音化語幹の場合は [ㅡ] を用いる
+   - これは「直後に母音が現れるとき」に該当するため、語幹が 2 種類ある濃音化語幹用言は長い方の語幹を用いる。
+
+
+<table class="grid w-sm qq" style="font-size: 75%">
+<tr>
+<td>&nbsp;</td>
+<th><small>〜すること</small><br>[-ㅁ]<br> /<br>[-음]</th>
+<th><small>〜することは</small><br>[-믄]<br> /<br>[-으믄]</th>
+<th><small>〜すれば</small><br>[-면]<br> /<br>[-으면]</th>
+<th><small>〜します。</small><br>[-ㅂ씨다]<br> /<br>[-읍씨다]</th>
+<th><small>〜ので…</small><br>[-니까]<br> /<br>[-으니까]</th>
+<th><small>〜ください。</small><br>[-십씨오]<br> /<br>[-으십씨오]</th>
+<td></td>
+</tr>
+<tr class="foo">
+<th><small>あげる</small><br> [주-]</th>
+<td>[줌]</td>
+<td>[주믄]</td>
+<td>[주면]</td>
+<td>[줍씨다]</td>
+<td>[주니까]</td>
+<td>[주십씨오]</td>
+<th rowspan="5" style="vertical-align:middle;">母・ㄹ</th>
+</tr>
+<tr>
+<th><small>使う</small><br>[쓰-]</th>
+<td>[씀]</td>
+<td>[쓰믄]</td>
+<td>[쓰면]</td>
+<td>[씁씨다]</td>
+<td>[쓰니까]</td>
+<td>[쓰십씨오]</td>
+</tr>
+<tr>
+<th><small>する</small><br>[하-]</th>
+<td>[함]</td>
+<td>[하믄]</td>
+<td>[하면]</td>
+<td>[합씨다]</td>
+<td>[하니까]</td>
+<td>[하십씨오]</td>
+</tr>
+<tr>
+<th><small>なる</small><br>[되-]</th>
+<td>[됨]</td>
+<td>[되믄]</td>
+<td>[되면]</td>
+<td>[됩씨다]</td>
+<td>[되니까]</td>
+<td>[되십씨오]</td>
+</tr>
+<tr>
+<th><small>住む</small><br>[살-]</th>
+<td>[삼]</td>
+<td>[살믄]</td>
+<td>[살면]</td>
+<td>[삽씨다]</td>
+<td>[사니까]</td>
+<td>[사십씨오]</td>
+</tr>
+<tr class="foo">
+<th><small>置く</small><br>[노-]</th>
+<td>[노음]</td>
+<td>[노으믄]</td>
+<td>[노으면]</td>
+<td>[노읍씨다]</td>
+<td>[노으니까]</td>
+<td>[노으십씨오]</td>
+<th rowspan="2" style="vertical-align:middle;">激音化</th>
+</tr>
+<tr>
+<th><small>〜でない</small><br>[안-]</th>
+<td>[아늠]</td>
+<td>[아느믄]</td>
+<td>[아느면]</td>
+<td>[아늡씨다]</td>
+<td>[아느니까]</td>
+<td>[아느십씨오]</td>
+</tr>
+<tr class="foo">
+<th><small>込める</small><br>[담-]</th>
+<td>[다믐]</td>
+<td>[다므믄]</td>
+<td>[다므면]</td>
+<td>[다믑씨다]</td>
+<td>[다므니까]</td>
+<td>[다므십씨오]</td>
+<th rowspan="3" style="vertical-align:middle;">濃音化</th>
+</tr>
+<tr>
+<th><small>似る</small><br><small class="gray">([담-] /)</small><br> [달ㅁ-]</th>
+<td>[달믐]</td>
+<td>[달므믄]</td>
+<td>[달므면]</td>
+<td>[달믑씨다]</td>
+<td>[달므니까]</td>
+<td>[달므십씨오]</td>
+</tr>
+<tr>
+<th><small>載せる</small><br><small class="gray">([언-] /)</small><br> [언ㅈ-]</th>
+<td>[언즘]</td>
+<td>[언즈믄]</td>
+<td>[언즈면]</td>
+<td>[언즙씨다]</td>
+<td>[언즈니까]</td>
+<td>[언즈십씨오]</td>
+</tr>
+</table>
 
 次に、[ㅡ] を用いることがない接辞について例示する。これらは [ㄱ][ㄴ][ㄷ][ㅁ][ㅈ][ㅆ]または母音のどれかで始まる。
 
