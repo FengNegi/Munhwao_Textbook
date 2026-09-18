@@ -3,7 +3,7 @@ title: 토 | 문화어를 배우자
 lang: ja
 ---
 
-<nav class="page-nav"><a href="index.html">← 本編にもどる</a></nav>
+<nav class="page-nav"><a href="02.html">← 本編にもどる</a>　<a href="index.html">目次</a></nav>
 
 # 토
 

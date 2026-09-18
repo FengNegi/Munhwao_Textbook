@@ -19,7 +19,7 @@ const FONT_CACHE = path.join(ROOT, ".cache", "fonts");
 // html: true  -> <details>/<summary> and the tables in index.md pass through
 // breaks: true -> a newline is a <br>, matching how the Google Docs source
 //                 used soft line breaks inside a paragraph
-const md = new MarkdownIt({ html: true, breaks: true, linkify: false });
+const md = new MarkdownIt({ html: true, breaks: true, linkify: true });
 
 // ---------------------------------------------------------------- fonts
 

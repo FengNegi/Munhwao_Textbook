@@ -1,6 +1,6 @@
 // Dev server: rebuilds dist/ whenever a source file changed, serves it on
-// http://localhost:3631 and reloads the browser tab on edits to
-// src/index.md or src/style.css.
+// http://localhost:3631 and reloads the browser tab on edits to any of
+// src/*.md, src/style.css or src/images/.
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";

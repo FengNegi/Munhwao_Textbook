@@ -20,8 +20,9 @@ npm run start   # http://localhost:3631/ で閲覧
 
 | パス | 内容 |
 | --- | --- |
-| `src/index.md` | 本編（旧タブ1）。`dist/index.html` になる |
-| `src/to.md` | 補足教材「토」（旧タブ2）。`dist/to.html` になる |
+| `src/index.md` | 目次と参考文献。`dist/index.html` になる |
+| `src/01.md`, `src/02.md`  | それぞれ `dist/01.html` と `dist/02.html` になる |
+| `src/to.md` | 補足教材「토」。`dist/to.html` になる |
 | `src/style.css` | 見た目。自由に編集してよい（初期状態は Google ドキュメントの書き出しに合わせてある） |
 | `src/images/` | 画像 |
 | `font/` | フォント原本（ビルド時に必要な字だけ切り出して woff2 化される） |
