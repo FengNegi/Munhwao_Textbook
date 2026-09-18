@@ -303,6 +303,7 @@ table.indent  { margin-left: 36pt; }
 details.note > summary {
   cursor: pointer;
   list-style-position: outside;
+  border-bottom: 1.5pt double var(--rule);
 }
 
 .note.blue,
