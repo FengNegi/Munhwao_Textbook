@@ -166,9 +166,9 @@ lang: ja
 </tr>
 <tr>
 <td>未来</td>
-<td>(으)ㄹ</td>
-<td>(으)ㄹ</td>
-<td>ㄹ</td>
+<td>(으)ㄹ'</td>
+<td>(으)ㄹ'</td>
+<td>ㄹ'</td>
 </tr>
 <td>過去持続</td>
 <td>던</td>
@@ -205,7 +205,7 @@ lang: ja
 
 ![](./images/ne2.png)
 
-### -ㄹ, -ㄹ'가
+### -ㄹ', -ㄹ, -ㄹ'가
 
 ![](./images/rga.png)
 
