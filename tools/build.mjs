@@ -5,7 +5,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import MarkdownIt from "markdown-it";
 import subsetFont from "subset-font";
 import { transliterate } from "../custom-transliteration/transliterate.js";
@@ -19,7 +19,10 @@ const FONT_CACHE = path.join(ROOT, ".cache", "fonts");
 // html: true  -> <details>/<summary> and the tables in index.md pass through
 // breaks: true -> a newline is a <br>, matching how the Google Docs source
 //                 used soft line breaks inside a paragraph
-const md = new MarkdownIt({ html: true, breaks: true, linkify: true });
+// The pages never show code, so an indented line is just an indented line:
+// with the "code" rule off it stays ordinary text instead of becoming a
+// <pre><code> block that refuses to wrap.
+const md = new MarkdownIt({ html: true, breaks: true, linkify: true }).disable("code");
 
 // ---------------------------------------------------------------- fonts
 
@@ -352,6 +355,6 @@ export async function build() {
   return written;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   for (const out of await build()) console.log(`built ${path.relative(ROOT, out)}`);
 }
